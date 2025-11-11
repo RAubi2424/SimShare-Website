@@ -1,5 +1,5 @@
 export function SimShareLogo({ size = 'normal' }: { size?: 'normal' | 'small' }) {
-  const logoHeight = size === 'small' ? 45 : 55;
+  const logoHeight = size === 'small' ? 55 : 70;
 
   return (
     <div style={{

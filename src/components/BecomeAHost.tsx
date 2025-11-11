@@ -160,7 +160,9 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                   boxShadow: isDark
                     ? '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
                     : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
-                  border: isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)',
+                  border: isDark
+                    ? '1px solid rgba(255, 255, 255, 0.05)'
+                    : '1px solid rgba(0, 0, 0, 0.05)',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
@@ -239,7 +241,9 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             boxShadow: isDark
               ? '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
               : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
-            border: isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)',
+            border: isDark
+              ? '1px solid rgba(255, 255, 255, 0.05)'
+              : '1px solid rgba(0, 0, 0, 0.05)',
           }}
         >
           <h3
@@ -525,7 +529,7 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                   fontFamily: 'Poppins, sans-serif',
                 }}
               >
-                0% SimShare Fees for 3 Months
+                0% SimShare Fees for First 100 Hosts
               </p>
               <p
                 style={{
@@ -535,7 +539,7 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                   fontFamily: 'Poppins, sans-serif',
                 }}
               >
-                + Priority placement when we launch
+                + Inaugural Members Badge when we Launch
               </p>
             </div>
 

@@ -20,7 +20,7 @@ function SocialIcons() {
     }}>
       {/* LinkedIn */}
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/company/simshare/posts/?feedView=all"
         target="_blank"
         rel="noopener noreferrer"
         style={{ display: 'flex', alignItems: 'center' }}
