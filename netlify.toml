@@ -5,6 +5,21 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Serve sitemap.xml as a static file
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+  force = true
+
+# Serve robots.txt as a static file
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+  force = true
+
+# Keep the SPA fallback LAST
 [[redirects]]
   from = "/*"
   to = "/index.html"
