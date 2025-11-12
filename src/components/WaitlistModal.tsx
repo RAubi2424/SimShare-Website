@@ -1,11 +1,11 @@
 import { useTheme } from '@/contexts/ThemeContext';
+import { supabase } from '@/lib/supabase';
 import { AlertCircle, CheckCircle2, Loader2, X } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import { supabase } from '@/lib/supabase';
 
 interface WaitlistFormData {
   firstName: string;
@@ -64,19 +64,17 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
     try {
       // Submit to Supabase
-      const { error } = await supabase
-        .from('waitlist_signups_test')
-        .insert([
-          {
-            first_name: data.firstName,
-            last_name: data.lastName,
-            email_address: data.email,
-            city: data.city,
-            province_territory: data.provinceTerritory,
-            phone_number: data.phone || null,
-            interest: data.interest,
-          },
-        ]);
+      const { error } = await supabase.from('waitlist_signups').insert([
+        {
+          first_name: data.firstName,
+          last_name: data.lastName,
+          email_address: data.email,
+          city: data.city,
+          province_territory: data.provinceTerritory,
+          phone_number: data.phone || null,
+          interest: data.interest,
+        },
+      ]);
 
       if (error) {
         throw error;
