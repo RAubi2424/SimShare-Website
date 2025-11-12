@@ -1,13 +1,14 @@
 # SimShare Design System
 
 **Version 1.0**
-*Last Updated: January 2025*
+_Last Updated: January 2025_
 
 This document defines the complete design system for SimShare, ensuring brand consistency across all digital products and platforms.
 
 ---
 
 ## Table of Contents
+
 1. [Brand Identity](#brand-identity)
 2. [Color Palette](#color-palette)
 3. [Typography](#typography)
@@ -22,18 +23,22 @@ This document defines the complete design system for SimShare, ensuring brand co
 ## Brand Identity
 
 ### Brand Name
+
 **SimShare**
 
 ### Tagline
-*"Share Your Simulator, Earn While You're Away"*
+
+_"Your Swing, Your Schedule"_
 
 ### Brand Voice
+
 - **Friendly**: Approachable and welcoming
 - **Professional**: Trustworthy and reliable
 - **Empowering**: Helps users monetize their assets
-- **Community-Focused**: Bringing sim enthusiasts together
+- **Community-Focused**: Bringing simulator and golf enthusiasts together
 
 ### Logo
+
 - **Full Logo**: Icon + "SimShare" wordmark
 - **Icon Only**: Golf simulator house icon (for small spaces)
 - **Logo Colors**:
@@ -42,12 +47,14 @@ This document defines the complete design system for SimShare, ensuring brand co
   - Dark Mode: White on dark backgrounds
 
 **Logo Sizes:**
+
 - Large (Hero): 70px height
 - Standard (Header): 55px height
 - Small (Scrolled Header): 55px height
 - Icon Only: 45px minimum
 
 **Logo Clear Space:**
+
 - Minimum padding around logo: 16px on all sides
 
 ---
@@ -57,14 +64,17 @@ This document defines the complete design system for SimShare, ensuring brand co
 ### Primary Colors
 
 #### SimShare Green
+
 ```css
 Primary: #478547
 RGB: 71, 133, 71
 HSL: 120°, 30%, 40%
 ```
+
 **Usage:** Primary actions, header, brand identity, CTAs
 
 #### SimShare Green Variants
+
 ```css
 Light Hover: #5a9a5a (10% lighter)
 Dark Hover: #3a6e3a (10% darker)
@@ -73,6 +83,7 @@ Dark Hover: #3a6e3a (10% darker)
 ### Neutral Colors (Light Mode)
 
 #### Backgrounds
+
 ```css
 Primary Background: #f5f5f5 (hsl(0, 0%, 96%))
 Secondary Background: #f2f2f2 (hsl(0, 0%, 95%))
@@ -81,6 +92,7 @@ Gradient: linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 92%) 100%)
 ```
 
 #### Text Colors
+
 ```css
 Primary Text: #191919 (near black)
 Secondary Text: #666666
@@ -89,6 +101,7 @@ Muted Text: #B8B8B8
 ```
 
 #### UI Elements
+
 ```css
 Border: #E5E5E5
 Border Light: rgba(0, 0, 0, 0.05)
@@ -98,6 +111,7 @@ Shadow: rgba(0, 0, 0, 0.1)
 ### Neutral Colors (Dark Mode)
 
 #### Backgrounds
+
 ```css
 Primary Background: hsl(0, 0%, 7%)
 Secondary Background: hsl(0, 0%, 9%)
@@ -106,6 +120,7 @@ Gradient: linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 7%) 100%)
 ```
 
 #### Text Colors
+
 ```css
 Primary Text: #FFFFFF
 Secondary Text: #D0D0D0
@@ -114,6 +129,7 @@ Muted Text: #888888
 ```
 
 #### UI Elements
+
 ```css
 Border: rgba(255, 255, 255, 0.05)
 Shadow: rgba(0, 0, 0, 0.5)
@@ -124,24 +140,28 @@ Input Border: hsl(0, 0%, 15%)
 ### Semantic Colors
 
 #### Success
+
 ```css
 Success Green: #22C55E
 Success Light: rgba(34, 197, 94, 0.1)
 ```
 
 #### Error
+
 ```css
 Error Red: #EF4444
 Error Light: rgba(239, 68, 68, 0.1)
 ```
 
 #### Warning
+
 ```css
 Warning Yellow: #F59E0B
 Warning Light: rgba(245, 158, 11, 0.1)
 ```
 
 #### Info
+
 ```css
 Info Blue: #3B82F6
 Info Light: rgba(59, 130, 246, 0.1)
@@ -152,12 +172,14 @@ Info Light: rgba(59, 130, 246, 0.1)
 ## Typography
 
 ### Font Family
+
 ```css
 Primary Font: 'Poppins', sans-serif
 Fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
 ```
 
 **Font Weights:**
+
 - Regular: 400
 - Medium: 500
 - Semi-Bold: 600
@@ -166,6 +188,7 @@ Fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
 ### Type Scale
 
 #### Headings
+
 ```css
 H1 (Hero Title): 56px / 700 / 1.1 line-height
 H2 (Section Title): 48px / 700 / 1.2 line-height
@@ -176,6 +199,7 @@ H6 (Label): 16px / 600 / 1.5 line-height
 ```
 
 #### Body Text
+
 ```css
 Body Large: 18px / 400 / 1.6 line-height
 Body Regular: 16px / 400 / 1.6 line-height
@@ -185,6 +209,7 @@ Fine Print: 12px / 400 / 1.3 line-height
 ```
 
 #### Buttons
+
 ```css
 Button Large: 18px / 700
 Button Regular: 16px / 700
@@ -192,6 +217,7 @@ Button Small: 14px / 600
 ```
 
 ### Text Colors by Context
+
 ```css
 /* Light Mode */
 Heading: #191919
@@ -211,6 +237,7 @@ Muted: #888888
 ## Spacing & Layout
 
 ### Spacing Scale (8px base unit)
+
 ```css
 xs: 4px
 sm: 8px
@@ -224,6 +251,7 @@ xl: 32px
 ```
 
 ### Container Widths
+
 ```css
 Max Content Width: 1200px
 Page Padding (Desktop): 48px
@@ -231,6 +259,7 @@ Page Padding (Mobile): 24px
 ```
 
 ### Grid System
+
 ```css
 Gap Small: 16px
 Gap Medium: 24px
@@ -243,6 +272,7 @@ Responsive: grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
 ```
 
 ### Border Radius
+
 ```css
 Small (Input): 8px
 Medium (Card): 12px
@@ -251,6 +281,7 @@ XL (Modal): 20px
 ```
 
 ### Shadows
+
 ```css
 /* Light Mode */
 Small: 0 2px 8px rgba(0, 0, 0, 0.1)
@@ -274,6 +305,7 @@ Card Hover: 0 8px 30px rgba(0, 0, 0, 0.15)
 ### Buttons
 
 #### Primary Button (CTA)
+
 ```css
 Background: #478547
 Color: #FFFFFF
@@ -293,6 +325,7 @@ Cursor: not-allowed
 ```
 
 #### Secondary Button
+
 ```css
 Background: #f5f5f5 (light) / hsl(0, 0%, 15%) (dark)
 Color: #478547 (light) / #FFFFFF (dark)
@@ -307,6 +340,7 @@ Opacity: 0.9
 ```
 
 #### Text Button (Link Style)
+
 ```css
 Background: transparent
 Color: #478547
@@ -322,6 +356,7 @@ Opacity: 0.8
 ### Form Elements
 
 #### Input Field
+
 ```css
 Background: #FFFFFF (light) / hsl(0, 0%, 10%) (dark)
 Border: 1px solid #E5E5E5 (light) / hsl(0, 0%, 15%) (dark)
@@ -346,6 +381,7 @@ Cursor: not-allowed
 ```
 
 #### Label
+
 ```css
 Font Size: 14px
 Font Weight: 500
@@ -355,6 +391,7 @@ Display: block
 ```
 
 #### Select Dropdown
+
 ```css
 /* Same as input + */
 Appearance: none
@@ -364,6 +401,7 @@ Padding Right: 40px
 ```
 
 #### Error Message
+
 ```css
 Color: #EF4444
 Font Size: 14px
@@ -374,6 +412,7 @@ Font Family: Poppins
 ### Cards
 
 #### Standard Card
+
 ```css
 Background: #FFFFFF (light) / hsl(0, 0%, 10%) (dark)
 Border Radius: 12px
@@ -391,6 +430,7 @@ Box Shadow: 0 8px 30px rgba(0, 0, 0, 0.2)
 ### Modal
 
 #### Modal Overlay (Backdrop)
+
 ```css
 Background: rgba(0, 0, 0, 0.7)
 Backdrop Filter: blur(4px)
@@ -400,6 +440,7 @@ Z-Index: 9998
 ```
 
 #### Modal Container
+
 ```css
 Background: hsl(0, 0%, 5%) (dark) / hsl(0, 0%, 95%) (light)
 Border Radius: 20px
@@ -417,6 +458,7 @@ Z-Index: 9999
 ```
 
 #### Modal Close Button
+
 ```css
 Position: absolute
 Top: 20px
@@ -437,6 +479,7 @@ Opacity: 0.7
 ### Header
 
 #### Fixed Header
+
 ```css
 Position: fixed
 Top: 0
@@ -455,6 +498,7 @@ Transition: all 0.3s ease
 ```
 
 #### Navigation Links
+
 ```css
 Font Size: 16px
 Font Weight: 600
@@ -474,13 +518,15 @@ Background: #FFFFFF
 ```
 
 #### Navigation Gap
+
 ```css
-Gap: 32px
+gap: 32px;
 ```
 
 ### Footer
 
 #### Footer Container
+
 ```css
 Background: linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 7%) 100%) (dark)
 Background: linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 92%) 100%) (light)
@@ -498,6 +544,7 @@ Border Bottom: none
 ```
 
 #### Social Media Icons
+
 ```css
 Width: 24px
 Height: 24px
@@ -513,6 +560,7 @@ Opacity: 1
 ### Status Messages
 
 #### Success Message
+
 ```css
 Display: flex
 Align Items: center
@@ -529,6 +577,7 @@ Size: 20px
 ```
 
 #### Error Message
+
 ```css
 Display: flex
 Align Items: center
@@ -547,18 +596,24 @@ Size: 20px
 ### Loading States
 
 #### Spinner
+
 ```css
 /* Use lucide-react Loader2 icon */
 Animation: spin 1s linear infinite
 Color: #478547
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 ```
 
 #### Button Loading State
+
 ```css
 Opacity: 0.7
 Cursor: wait
@@ -578,6 +633,7 @@ Height: 20px
 ## Animations & Transitions
 
 ### Standard Transitions
+
 ```css
 /* Default */
 transition: all 0.2s ease
@@ -592,34 +648,43 @@ transition: all 0.15s ease
 ### Common Animations
 
 #### Hover Scale (Small)
+
 ```css
 transform: scale(1.02)
 transition: transform 0.2s ease
 ```
 
 #### Hover Scale (Medium)
+
 ```css
 transform: scale(1.05)
 transition: transform 0.2s ease
 ```
 
 #### Hover Lift
+
 ```css
 transform: translateY(-4px)
 transition: all 0.3s ease
 ```
 
 #### Fade In
+
 ```css
 animation: fadeIn 0.3s ease-in-out
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 ```
 
 #### Slide In from Bottom
+
 ```css
 animation: slideInUp 0.4s ease-out
 
@@ -636,12 +701,18 @@ animation: slideInUp 0.4s ease-out
 ```
 
 #### Pulse (for loading/emphasis)
+
 ```css
 animation: pulse 2s ease-in-out infinite
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 ```
 
@@ -650,21 +721,31 @@ animation: pulse 2s ease-in-out infinite
 ## Responsive Design
 
 ### Breakpoints
+
 ```css
 /* Mobile */
-@media (max-width: 640px) { /* sm */ }
+@media (max-width: 640px) {
+  /* sm */
+}
 
 /* Tablet */
-@media (max-width: 768px) { /* md */ }
+@media (max-width: 768px) {
+  /* md */
+}
 
 /* Desktop */
-@media (max-width: 1024px) { /* lg */ }
+@media (max-width: 1024px) {
+  /* lg */
+}
 
 /* Large Desktop */
-@media (max-width: 1280px) { /* xl */ }
+@media (max-width: 1280px) {
+  /* xl */
+}
 ```
 
 ### Responsive Typography
+
 ```css
 /* Mobile Adjustments */
 @media (max-width: 768px) {
@@ -683,6 +764,7 @@ animation: pulse 2s ease-in-out infinite
 ```
 
 ### Responsive Layout Patterns
+
 ```css
 /* Stack on Mobile */
 @media (max-width: 768px) {
@@ -709,9 +791,11 @@ animation: pulse 2s ease-in-out infinite
 ## Accessibility
 
 ### WCAG Compliance
+
 Target: **WCAG 2.1 Level AA**
 
 ### Color Contrast Ratios
+
 ```css
 /* Minimum Ratios */
 Large Text (18px+): 3:1
@@ -726,6 +810,7 @@ Ratio: 4.8:1 ✓ (passes AA)
 ```
 
 ### Focus States
+
 ```css
 /* All Interactive Elements */
 outline: 2px solid #478547
@@ -737,6 +822,7 @@ box-shadow: 0 0 0 3px rgba(71, 133, 71, 0.3)
 ```
 
 ### Interactive Element Sizes
+
 ```css
 /* Minimum Touch Target */
 Minimum Width: 44px
@@ -745,6 +831,7 @@ Padding: adequate for 44x44px minimum
 ```
 
 ### Screen Reader Support
+
 ```html
 <!-- Always use semantic HTML -->
 <button aria-label="Close modal">...</button>
@@ -758,6 +845,7 @@ Padding: adequate for 44x44px minimum
 ```
 
 ### Keyboard Navigation
+
 - All interactive elements must be keyboard accessible
 - Focus order must be logical
 - Escape key should close modals
@@ -769,6 +857,7 @@ Padding: adequate for 44x44px minimum
 ## Theme Toggle
 
 ### Toggle Button
+
 ```css
 Width: 40px
 Height: 40px
@@ -795,6 +884,7 @@ Transform: scale(1.05)
 ## Usage Examples
 
 ### Example: Primary CTA Button
+
 ```tsx
 <button
   style={{
@@ -810,11 +900,11 @@ Transform: scale(1.05)
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
     transition: 'all 0.2s ease',
   }}
-  onMouseEnter={(e) => {
+  onMouseEnter={e => {
     e.currentTarget.style.transform = 'scale(1.05)';
     e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
   }}
-  onMouseLeave={(e) => {
+  onMouseLeave={e => {
     e.currentTarget.style.transform = 'scale(1)';
     e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
   }}
@@ -824,6 +914,7 @@ Transform: scale(1.05)
 ```
 
 ### Example: Input Field
+
 ```tsx
 <input
   type="text"
@@ -838,7 +929,7 @@ Transform: scale(1.05)
     width: '100%',
     outline: 'none',
   }}
-  onFocus={(e) => {
+  onFocus={e => {
     e.currentTarget.style.borderColor = '#478547';
     e.currentTarget.style.boxShadow = '0 0 0 3px rgba(71, 133, 71, 0.2)';
   }}
@@ -846,6 +937,7 @@ Transform: scale(1.05)
 ```
 
 ### Example: Card Component
+
 ```tsx
 <div
   style={{
@@ -889,19 +981,26 @@ When creating new SimShare materials, ensure you have:
 ## Design Tools
 
 ### Recommended Color Formats
+
 - **CSS**: Hex (#478547) or HSL (hsl(120, 30%, 40%))
 - **Design Tools**: RGB (71, 133, 71)
 - **Opacity**: Use rgba() or hsla()
 
 ### Font Loading
+
 ```html
 <!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 ### Icon Library
+
 **Lucide React** (https://lucide.dev)
+
 - Consistent style
 - Tree-shakeable
 - Customizable size and color
@@ -911,6 +1010,7 @@ When creating new SimShare materials, ensure you have:
 ## Version History
 
 **v1.0** - January 2025
+
 - Initial design system documentation
 - Based on SimShare pre-launch website
 - Includes light/dark theme specifications
@@ -922,6 +1022,7 @@ When creating new SimShare materials, ensure you have:
 ## Maintenance Notes
 
 ### When Adding New Components:
+
 1. Follow the existing color palette
 2. Use the 8px spacing scale
 3. Maintain consistent border radius values
@@ -932,6 +1033,7 @@ When creating new SimShare materials, ensure you have:
 8. Document in this design system
 
 ### When Updating:
+
 1. Update version number
 2. Document changes in version history
 3. Update all affected components
