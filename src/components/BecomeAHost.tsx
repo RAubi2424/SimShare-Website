@@ -126,7 +126,7 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
               fontFamily: 'Poppins, sans-serif',
             }}
           >
-            From casual golfers earning extra income from there home sim, to
+            From casual golfers earning extra income from their home sim, to
             entrepreneurs launching their own simulator facilities. SimShare
             makes it simple to start earning.
           </p>
