@@ -1,5 +1,6 @@
 import imgGolfSim from 'figma:asset/5e785a4f588382d9855fbe756dbac66fcfad1ac5.png';
 import { useTheme } from '../contexts/ThemeContext';
+import { useResponsive, getResponsiveValue } from '../hooks/useResponsive';
 
 interface HomePageProps {
   onNavigate: (sectionId: string) => void;
@@ -8,17 +9,20 @@ interface HomePageProps {
 export function HomePage({ onNavigate }: HomePageProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+  const { screenWidth } = useResponsive();
+  const isMobileOrTablet = screenWidth < 1024;
 
   return (
     <div
+      className="home-container"
       style={{
         width: '100%',
         minHeight: '100vh',
-        background: isDark
+        background: isMobileOrTablet
+          ? `linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url(${imgGolfSim}) center/cover no-repeat`
+          : isDark
           ? 'linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 50%, hsl(0, 0%, 5%) 100%)'
           : 'linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 95%) 50%, hsl(0, 0%, 100%) 100%)',
-        paddingTop: '100px',
-        paddingBottom: '60px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -32,8 +36,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
           position: 'absolute',
           top: '-10%',
           right: '-5%',
-          width: '600px',
-          height: '600px',
+          width: getResponsiveValue('300px', '600px', '600px', screenWidth),
+          height: getResponsiveValue('300px', '600px', '600px', screenWidth),
           background:
             'radial-gradient(circle, rgba(71, 133, 71, 0.15) 0%, transparent 70%)',
           borderRadius: '50%',
@@ -46,8 +50,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
           position: 'absolute',
           bottom: '-15%',
           left: '-10%',
-          width: '700px',
-          height: '700px',
+          width: getResponsiveValue('350px', '700px', '700px', screenWidth),
+          height: getResponsiveValue('350px', '700px', '700px', screenWidth),
           background:
             'radial-gradient(circle, rgba(71, 133, 71, 0.1) 0%, transparent 70%)',
           borderRadius: '50%',
@@ -57,25 +61,24 @@ export function HomePage({ onNavigate }: HomePageProps) {
       />
 
       <div
+        className="home-content"
         style={{
           maxWidth: '1400px',
           width: '100%',
-          padding: '0 60px',
           display: 'flex',
           alignItems: 'center',
           position: 'relative',
           zIndex: 1,
-          gap: '0',
         }}
       >
         {/* Left Side - Text Content in Card */}
         <div
+          className="home-card"
           style={{
             background: isDark
               ? 'linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 8%) 100%)'
               : 'linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 92%) 100%)',
             borderRadius: '32px',
-            padding: '60px',
             boxShadow: isDark
               ? '0 30px 80px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.05) inset'
               : '0 30px 80px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.05) inset',
@@ -85,15 +88,13 @@ export function HomePage({ onNavigate }: HomePageProps) {
             backdropFilter: 'blur(10px)',
             position: 'relative',
             zIndex: 2,
-            maxWidth: '650px',
-            marginRight: '-80px',
           }}
         >
           {/* Main Headline */}
           <h1
             key={theme}
+            className="home-title"
             style={{
-              fontSize: '56px',
               fontWeight: '800',
               lineHeight: '1.1',
               margin: '0 0 24px 0',
@@ -113,8 +114,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
           {/* Description */}
           <p
+            className="home-description"
             style={{
-              fontSize: '18px',
               lineHeight: '1.7',
               color: isDark ? '#B8B8B8' : '#666666',
               margin: '0 0 40px 0',
@@ -126,20 +127,14 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </p>
 
           {/* CTA Buttons */}
-          <div
-            style={{
-              display: 'flex',
-              gap: '16px',
-            }}
-          >
+          <div className="home-buttons">
             <button
               onClick={() => onNavigate('waitlist')}
+              className="home-button"
               style={{
                 background: 'linear-gradient(135deg, #478547 0%, #5a9d5a 100%)',
                 color: '#FFFFFF',
-                fontSize: '17px',
                 fontWeight: '700',
-                padding: '18px 40px',
                 borderRadius: '40px',
                 border: 'none',
                 cursor: 'pointer',
@@ -165,11 +160,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
             <button
               onClick={() => onNavigate('what-is-simshare')}
+              className="home-button"
               style={{
                 color: isDark ? '#ffffffff' : '#191919',
-                fontSize: '17px',
                 fontWeight: '600',
-                padding: '18px 40px',
                 borderRadius: '20px',
                 border: `2px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
                 cursor: 'pointer',
@@ -197,12 +191,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
         {/* Right Side - Enhanced Image */}
         <div
+          className="home-image-container"
           style={{
             position: 'relative',
-            width: '750px',
-            height: '600px',
             zIndex: 1,
-            flex: '0 0 750px',
           }}
         >
           {/* Glow effect behind image */}

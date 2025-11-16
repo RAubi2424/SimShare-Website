@@ -86,24 +86,25 @@ export function SimShareFooter() {
   const isDark = theme === 'dark';
 
   return (
-    <footer style={{
-      width: '100%',
-      background: isDark
-        ? 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 7%) 100%)'
-        : 'linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 92%) 100%)',
-      padding: '32px 48px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      borderTopLeftRadius: '16px',
-      borderTopRightRadius: '16px',
-      boxShadow: isDark
-        ? '0 -20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
-        : '0 -20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
-      border: isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)',
-      borderBottom: 'none',
-      marginTop: 'auto'
-    }}>
+    <footer
+      className="footer-container"
+      style={{
+        width: '100%',
+        background: isDark
+          ? 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 7%) 100%)'
+          : 'linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 92%) 100%)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderTopLeftRadius: '16px',
+        borderTopRightRadius: '16px',
+        boxShadow: isDark
+          ? '0 -20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
+          : '0 -20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
+        border: isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)',
+        borderBottom: 'none',
+        marginTop: 'auto'
+      }}>
       {/* Trademark */}
       <div style={{
         color: isDark ? '#D0D0D0' : '#333333',

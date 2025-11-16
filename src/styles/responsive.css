@@ -1,0 +1,577 @@
+/* Mobile-first responsive styles for SimShare */
+
+/* Base mobile styles */
+.responsive-header {
+  padding: 20px 16px;
+  transition: all 0.3s ease;
+}
+
+.responsive-header.scrolled {
+  padding: 12px 16px;
+}
+
+.responsive-nav {
+  display: none;
+}
+
+.mobile-menu-button {
+  display: block;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: #478547;
+  z-index: 999;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-menu-item {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item.active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* HomePage responsive */
+.home-container {
+  padding: 96px 16px 48px;
+}
+
+.home-content {
+  max-width: 1400px;
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.home-card {
+  padding: 32px;
+  width: 100%;
+}
+
+.home-title {
+  font-size: 36px;
+}
+
+.home-description {
+  font-size: 16px;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.home-button {
+  padding: 16px 32px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.home-image-container {
+  display: none;
+}
+
+/* WhatIsSimShare responsive */
+.what-section {
+  padding: 64px 16px;
+}
+
+.what-title {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.what-content {
+  max-width: 900px;
+  margin: 0 auto 48px;
+}
+
+.what-description {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.what-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 32px 0;
+  padding: 24px;
+}
+
+.what-card {
+  padding: 24px;
+}
+
+.what-card-title {
+  font-size: 20px;
+}
+
+.what-card-text {
+  font-size: 14px;
+}
+
+.what-cta {
+  padding: 24px;
+}
+
+.what-cta-title {
+  font-size: 18px;
+}
+
+.what-cta-text {
+  font-size: 14px;
+}
+
+/* BecomeAHost responsive */
+.host-section {
+  padding: 64px 16px;
+}
+
+.host-title {
+  font-size: 32px;
+}
+
+.host-subtitle {
+  font-size: 16px;
+}
+
+.host-text {
+  font-size: 14px;
+}
+
+.host-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.host-card {
+  padding: 24px;
+}
+
+.host-card-title {
+  font-size: 18px;
+}
+
+.host-card-text {
+  font-size: 14px;
+}
+
+.host-control {
+  padding: 32px 24px;
+  margin-bottom: 64px;
+}
+
+.host-control-title {
+  font-size: 28px;
+}
+
+.host-control-text {
+  font-size: 16px;
+}
+
+.host-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.host-cta {
+  padding: 32px 24px;
+}
+
+.host-cta-title {
+  font-size: 28px;
+}
+
+.host-cta-badge {
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+
+.host-cta-badge-title {
+  font-size: 14px;
+}
+
+.host-cta-badge-main {
+  font-size: 20px;
+}
+
+.host-cta-badge-sub {
+  font-size: 14px;
+}
+
+/* WaitlistModal responsive */
+.modal-container {
+  width: 95%;
+  max-width: 600px;
+  padding: 32px 24px;
+}
+
+.modal-title {
+  font-size: 28px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+}
+
+.modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* Footer responsive */
+.footer-container {
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-text {
+  font-size: 14px;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 16px;
+}
+
+/* Tablet breakpoint (768px) */
+@media (min-width: 768px) {
+  .responsive-header {
+    padding: 20px 48px;
+  }
+
+  .responsive-header.scrolled {
+    padding: 12px 48px;
+  }
+
+  .responsive-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .mobile-menu-button {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none !important;
+  }
+
+  .home-container {
+    padding: 112px 32px 64px;
+  }
+
+  .home-content {
+    padding: 0 32px;
+  }
+
+  .home-card {
+    padding: 48px;
+  }
+
+  .home-title {
+    font-size: 48px;
+  }
+
+  .home-description {
+    font-size: 18px;
+  }
+
+  .home-buttons {
+    flex-direction: row;
+    width: auto;
+    justify-content: center;
+  }
+
+  .home-button {
+    padding: 18px 40px;
+    font-size: 17px;
+    width: auto;
+    min-width: 180px;
+  }
+
+  .home-image-container {
+    height: 500px;
+  }
+
+  .what-section {
+    padding: 96px 32px;
+  }
+
+  .what-title {
+    font-size: 40px;
+  }
+
+  .what-description {
+    font-size: 18px;
+  }
+
+  .what-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 40px;
+  }
+
+  .what-card-title {
+    font-size: 22px;
+  }
+
+  .what-card-text {
+    font-size: 16px;
+  }
+
+  .what-cta {
+    padding: 32px 48px;
+  }
+
+  .what-cta-title {
+    font-size: 20px;
+  }
+
+  .what-cta-text {
+    font-size: 16px;
+  }
+
+  .host-section {
+    padding: 96px 32px;
+  }
+
+  .host-title {
+    font-size: 40px;
+  }
+
+  .host-subtitle {
+    font-size: 18px;
+  }
+
+  .host-text {
+    font-size: 16px;
+  }
+
+  .host-grid-3 {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+
+  .host-card {
+    padding: 28px;
+  }
+
+  .host-card-title {
+    font-size: 20px;
+  }
+
+  .host-card-text {
+    font-size: 15px;
+  }
+
+  .host-control {
+    padding: 48px 40px;
+    margin-bottom: 80px;
+  }
+
+  .host-control-title {
+    font-size: 32px;
+  }
+
+  .host-control-text {
+    font-size: 18px;
+  }
+
+  .host-features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .host-cta {
+    padding: 48px 40px;
+  }
+
+  .host-cta-title {
+    font-size: 34px;
+  }
+
+  .host-cta-badge {
+    padding: 28px 36px;
+  }
+
+  .host-cta-badge-title {
+    font-size: 15px;
+  }
+
+  .host-cta-badge-main {
+    font-size: 22px;
+  }
+
+  .modal-container {
+    width: 90%;
+    padding: 40px;
+  }
+
+  .modal-title {
+    font-size: 32px;
+  }
+
+  .modal-subtitle {
+    font-size: 16px;
+  }
+
+  .modal-form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .footer-container {
+    padding: 32px 48px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer-icons {
+    gap: 20px;
+  }
+}
+
+/* Desktop breakpoint (1024px) */
+@media (min-width: 1024px) {
+  .responsive-nav {
+    gap: 32px;
+  }
+
+  .home-content {
+    flex-direction: row;
+    padding: 0 64px;
+    gap: 0;
+  }
+
+  .home-card {
+    max-width: 650px;
+    margin-right: -80px;
+    padding: 60px;
+  }
+
+  .home-title {
+    font-size: 56px;
+  }
+
+  .home-image-container {
+    display: block;
+    width: 750px;
+    height: 600px;
+    flex: 0 0 750px;
+  }
+
+  .what-section {
+    padding: 100px 40px;
+  }
+
+  .what-title {
+    font-size: 48px;
+  }
+
+  .what-description {
+    font-size: 19px;
+  }
+
+  .host-section {
+    padding: 100px 40px;
+  }
+
+  .host-title {
+    font-size: 48px;
+  }
+
+  .host-subtitle {
+    font-size: 20px;
+  }
+
+  .host-text {
+    font-size: 18px;
+  }
+
+  .host-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .host-control {
+    padding: 60px 50px;
+  }
+
+  .host-control-title {
+    font-size: 36px;
+  }
+
+  .host-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .host-cta {
+    padding: 60px 50px;
+  }
+
+  .host-cta-title {
+    font-size: 38px;
+  }
+
+  .host-cta-badge {
+    padding: 28px 40px;
+  }
+
+  .host-cta-badge-title {
+    font-size: 16px;
+  }
+
+  .host-cta-badge-main {
+    font-size: 24px;
+  }
+
+  .host-cta-badge-sub {
+    font-size: 15px;
+  }
+}

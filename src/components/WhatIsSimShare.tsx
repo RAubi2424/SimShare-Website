@@ -20,14 +20,15 @@ export function WhatIsSimShare({ onOpenWaitlist }: WhatIsSimShareProps) {
   ];
 
   return (
-    <div style={{
-      width: '100%',
-      background: isDark
-        ? 'linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 7%) 50%, hsl(0, 0%, 5%) 100%)'
-        : 'linear-gradient(180deg, hsl(0, 0%, 90%) 0%, hsl(0, 0%, 93%) 50%, hsl(0, 0%, 90%) 100%)',
-      padding: '100px 40px',
-      position: 'relative'
-    }}>
+    <div
+      className="what-section"
+      style={{
+        width: '100%',
+        background: isDark
+          ? 'linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 7%) 50%, hsl(0, 0%, 5%) 100%)'
+          : 'linear-gradient(180deg, hsl(0, 0%, 90%) 0%, hsl(0, 0%, 93%) 50%, hsl(0, 0%, 90%) 100%)',
+        position: 'relative'
+      }}>
       <div style={{
         maxWidth: '1100px',
         margin: '0 auto'
@@ -38,54 +39,50 @@ export function WhatIsSimShare({ onOpenWaitlist }: WhatIsSimShareProps) {
           textAlign: 'center',
           marginBottom: '60px'
         }}>
-          <h2 style={{
-            fontSize: '48px',
-            fontWeight: '700',
-            color: isDark ? '#FFFFFF' : '#191919',
-            margin: '0 0 24px 0',
-            fontFamily: 'Poppins, sans-serif'
-          }}>
+          <h2
+            className="what-title"
+            style={{
+              fontWeight: '700',
+              color: isDark ? '#FFFFFF' : '#191919',
+              margin: '0 0 24px 0',
+              fontFamily: 'Poppins, sans-serif'
+            }}>
             What is SimShare?
           </h2>
         </div>
 
         {/* Main Content */}
-        <div style={{
-          maxWidth: '900px',
-          margin: '0 auto 60px auto'
-        }}>
-          <p style={{
-            fontSize: '19px',
-            lineHeight: '1.8',
-            color: isDark ? '#D0D0D0' : '#333333',
-            margin: '0 0 32px 0',
-            fontFamily: 'Poppins, sans-serif',
-            textAlign: 'center'
-          }}>
+        <div className="what-content">
+          <p
+            className="what-description"
+            style={{
+              lineHeight: '1.8',
+              color: isDark ? '#D0D0D0' : '#333333',
+              margin: '0 0 32px 0',
+              fontFamily: 'Poppins, sans-serif',
+              textAlign: 'center'
+            }}>
             At SimShare, we're building a platform that connects golf simulator owners with golfers looking for flexible, affordable places to practice and play. By bringing everyone together in one easy-to-use system, SimShare unlocks the full value of a simulator by offering secure access to verified golfers, benefiting both owners and renters.
           </p>
 
           {/* Highlights Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '32px',
-            margin: '48px 0',
-            padding: '40px',
-            background: isDark
-              ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
-              : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
-            borderRadius: '20px',
-            boxShadow: isDark
-              ? '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
-              : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
-            border: isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)'
-          }}>
+          <div
+            className="what-grid"
+            style={{
+              background: isDark
+                ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
+                : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
+              borderRadius: '20px',
+              boxShadow: isDark
+                ? '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
+                : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
+              border: isDark ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)'
+            }}>
             {highlights.map((highlight, index) => (
               <div
                 key={index}
+                className="what-card"
                 style={{
-                  padding: '24px',
                   borderLeft: `4px solid #478547`,
                   background: isDark
                     ? 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 11%) 100%)'
@@ -96,36 +93,41 @@ export function WhatIsSimShare({ onOpenWaitlist }: WhatIsSimShareProps) {
                     : '0 4px 12px rgba(0, 0, 0, 0.05)'
                 }}
               >
-                <h3 style={{
-                  fontSize: '22px',
-                  fontWeight: '700',
-                  color: '#478547',
-                  margin: '0 0 12px 0',
-                  fontFamily: 'Poppins, sans-serif'
-                }}>
+                <h3
+                  className="what-card-title"
+                  style={{
+                    fontWeight: '700',
+                    color: '#478547',
+                    margin: '0 0 12px 0',
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
                   {highlight.title}
                 </h3>
-                <p style={{
-                  fontSize: '16px',
-                  lineHeight: '1.7',
-                  color: isDark ? '#B8B8B8' : '#666666',
-                  margin: 0,
-                  fontFamily: 'Poppins, sans-serif'
-                }}>
+                <p
+                  className="what-card-text"
+                  style={{
+                    lineHeight: '1.7',
+                    color: isDark ? '#B8B8B8' : '#666666',
+                    margin: 0,
+                    fontFamily: 'Poppins, sans-serif'
+                  }}
+                >
                   {highlight.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <p style={{
-            fontSize: '19px',
-            lineHeight: '1.8',
-            color: isDark ? '#D0D0D0' : '#333333',
-            margin: 0,
-            fontFamily: 'Poppins, sans-serif',
-            textAlign: 'center'
-          }}>
+          <p
+            className="what-description"
+            style={{
+              lineHeight: '1.8',
+              color: isDark ? '#D0D0D0' : '#333333',
+              margin: 0,
+              fontFamily: 'Poppins, sans-serif',
+              textAlign: 'center'
+            }}>
             SimShare is redefining the indoor golf experience. We're expanding access, building connections, and helping the game grow year-round. Whether you're hosting or playing, SimShare makes it effortless to share your space, connect with local golfers, and make every swing count.
           </p>
         </div>
@@ -136,9 +138,9 @@ export function WhatIsSimShare({ onOpenWaitlist }: WhatIsSimShareProps) {
           marginTop: '60px'
         }}>
           <div
+            className="what-cta"
             style={{
               display: 'inline-block',
-              padding: '32px 48px',
               background: isDark
                 ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
                 : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
@@ -164,21 +166,25 @@ export function WhatIsSimShare({ onOpenWaitlist }: WhatIsSimShareProps) {
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              <p style={{
-                fontSize: '20px',
-                fontWeight: '600',
-                color: isDark ? '#FFFFFF' : '#191919',
-                margin: '0 0 8px 0',
-                fontFamily: 'Poppins, sans-serif'
-              }}>
+              <p
+                className="what-cta-title"
+                style={{
+                  fontWeight: '600',
+                  color: isDark ? '#FFFFFF' : '#191919',
+                  margin: '0 0 8px 0',
+                  fontFamily: 'Poppins, sans-serif'
+                }}
+              >
                 Ready to get started?
               </p>
-              <p style={{
-                fontSize: '16px',
-                color: isDark ? '#B8B8B8' : '#666666',
-                margin: 0,
-                fontFamily: 'Poppins, sans-serif'
-              }}>
+              <p
+                className="what-cta-text"
+                style={{
+                  color: isDark ? '#B8B8B8' : '#666666',
+                  margin: 0,
+                  fontFamily: 'Poppins, sans-serif'
+                }}
+              >
                 Join our waitlist and be among the first to experience SimShare
               </p>
             </div>

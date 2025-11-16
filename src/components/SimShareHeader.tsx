@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { SimShareLogo, SimShareLogoWithName } from './SimShareLogo';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -9,6 +10,7 @@ interface SimShareHeaderProps {
 export function SimShareHeader({ onNavigate }: SimShareHeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,53 +39,52 @@ export function SimShareHeader({ onNavigate }: SimShareHeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <header
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        backgroundColor: '#478547',
-        padding: isScrolled ? '12px 48px' : '20px 48px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderBottomLeftRadius: '16px',
-        borderBottomRightRadius: '16px',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-        transition: 'all 0.3s ease',
-      }}
-    >
-      {/* Logo - show with text when not scrolled, only icon when scrolled */}
-      <button
-        onClick={() => onNavigate('home')}
-        style={{
-          background: 'transparent',
-          border: 'none',
-          cursor: 'pointer',
-          padding: 0,
-          transition: 'transform 0.2s ease',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
-        onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-      >
-        {isScrolled ? (
-          <SimShareLogo size="small" />
-        ) : (
-          <SimShareLogoWithName isDark={true} />
-        )}
-      </button>
+  const handleNavClick = (sectionId: string) => {
+    onNavigate(sectionId);
+    setIsMobileMenuOpen(false);
+  };
 
-      {/* Navigation */}
-      <nav
+  return (
+    <>
+      <header
+        className={`responsive-header ${isScrolled ? 'scrolled' : ''}`}
         style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          backgroundColor: '#478547',
           display: 'flex',
           alignItems: 'center',
-          gap: '32px',
+          justifyContent: 'space-between',
+          borderBottomLeftRadius: '16px',
+          borderBottomRightRadius: '16px',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
         }}
       >
+        {/* Logo */}
+        <button
+          onClick={() => handleNavClick('home')}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            padding: 0,
+            transition: 'transform 0.2s ease',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
+          onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+        >
+          {isScrolled ? (
+            <SimShareLogo size="small" />
+          ) : (
+            <SimShareLogoWithName isDark={true} />
+          )}
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav className="responsive-nav">
         <button
           onClick={() => onNavigate('what-is-simshare')}
           style={{
@@ -185,6 +186,59 @@ export function SimShareHeader({ onNavigate }: SimShareHeaderProps) {
 
         <ThemeToggle />
       </nav>
+
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="mobile-menu-button"
+        aria-label="Toggle menu"
+      >
+        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
     </header>
+
+    {/* Mobile Menu */}
+    {isMobileMenuOpen && (
+      <div className="mobile-menu">
+        <div className="mobile-menu-nav">
+          <button
+            onClick={() => handleNavClick('what-is-simshare')}
+            className={`mobile-menu-item ${activeSection === 'what-is-simshare' ? 'active' : ''}`}
+          >
+            What is SimShare
+          </button>
+
+          <button
+            onClick={() => handleNavClick('become-a-host')}
+            className={`mobile-menu-item ${activeSection === 'become-a-host' ? 'active' : ''}`}
+          >
+            Become a Host
+          </button>
+
+          <button
+            onClick={() => handleNavClick('waitlist')}
+            style={{
+              backgroundColor: '#f5f5f5ff',
+              color: '#478547',
+              fontSize: '16px',
+              fontWeight: '700',
+              padding: '12px 28px',
+              borderRadius: '15px',
+              border: 'none',
+              cursor: 'pointer',
+              fontFamily: 'Poppins, sans-serif',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+            }}
+          >
+            Join Waitlist
+          </button>
+
+          <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '8px' }}>
+            <ThemeToggle />
+          </div>
+        </div>
+      </div>
+    )}
+  </>
   );
 }

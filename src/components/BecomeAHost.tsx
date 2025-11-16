@@ -68,12 +68,12 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
 
   return (
     <div
+      className="host-section"
       style={{
         width: '100%',
         background: isDark
           ? 'linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 7%) 50%, hsl(0, 0%, 5%) 100%)'
           : 'linear-gradient(180deg, hsl(0, 0%, 90%) 0%, hsl(0, 0%, 93%) 50%, hsl(0, 0%, 90%) 100%)',
-        padding: '100px 40px',
         position: 'relative',
       }}
     >
@@ -93,8 +93,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
           }}
         >
           <h2
+            className="host-title"
             style={{
-              fontSize: '48px',
               fontWeight: '700',
               color: isDark ? '#FFFFFF' : '#191919',
               margin: '0 0 24px 0',
@@ -104,8 +104,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             Turn Your Simulator into Income
           </h2>
           <p
+            className="host-subtitle"
             style={{
-              fontSize: '20px',
               lineHeight: '1.8',
               color: isDark ? '#D0D0D0' : '#333333',
               margin: '0 0 32px 0',
@@ -118,8 +118,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             facility.
           </p>
           <p
+            className="host-text"
             style={{
-              fontSize: '18px',
               lineHeight: '1.7',
               color: isDark ? '#B8B8B8' : '#666666',
               margin: 0,
@@ -134,11 +134,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
 
         {/* Benefits Grid */}
         <div
+          className="host-grid-3"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '30px',
-            marginBottom: '80px',
             maxWidth: '1100px',
             margin: '0 auto 80px auto',
           }}
@@ -148,12 +145,12 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             return (
               <div
                 key={index}
+                className="host-card"
                 style={{
                   background: isDark
                     ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
                     : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
                   borderRadius: '16px',
-                  padding: '32px 28px',
                   textAlign: 'center',
                   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                   cursor: 'default',
@@ -201,8 +198,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                   }}
                 >
                   <h3
+                    className="host-card-title"
                     style={{
-                      fontSize: '20px',
                       fontWeight: '600',
                       color: isDark ? '#FFFFFF' : '#191919',
                       margin: '0 0 12px 0',
@@ -212,8 +209,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                     {benefit.title}
                   </h3>
                   <p
+                    className="host-card-text"
                     style={{
-                      fontSize: '15px',
                       lineHeight: '1.6',
                       color: isDark ? '#B8B8B8' : '#666666',
                       margin: 0,
@@ -230,12 +227,12 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
 
         {/* Control Section */}
         <div
+          className="host-control"
           style={{
             background: isDark
               ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
               : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
             borderRadius: '24px',
-            padding: '60px 50px',
             marginBottom: '80px',
             textAlign: 'center',
             boxShadow: isDark
@@ -247,8 +244,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
           }}
         >
           <h3
+            className="host-control-title"
             style={{
-              fontSize: '36px',
               fontWeight: '700',
               color: isDark ? '#FFFFFF' : '#191919',
               margin: '0 0 20px 0',
@@ -258,8 +255,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             You're in Control — Every Step of the Way
           </h3>
           <p
+            className="host-control-text"
             style={{
-              fontSize: '18px',
               lineHeight: '1.8',
               color: isDark ? '#D0D0D0' : '#333333',
               margin: '0 0 24px 0',
@@ -275,8 +272,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             performance — all in one place.
           </p>
           <p
+            className="host-control-text"
             style={{
-              fontSize: '17px',
               lineHeight: '1.7',
               color: isDark ? '#B8B8B8' : '#666666',
               margin: 0,
@@ -334,8 +331,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
           }}
         >
           <h3
+            className="host-features-title"
             style={{
-              fontSize: '36px',
               fontWeight: '700',
               color: isDark ? '#FFFFFF' : '#191919',
               margin: '0 0 20px 0',
@@ -346,8 +343,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             Effortless Hosting, Powerful Support
           </h3>
           <p
+            className="host-features-text"
             style={{
-              fontSize: '18px',
               lineHeight: '1.7',
               color: isDark ? '#B8B8B8' : '#666666',
               margin: '0 0 48px 0',
@@ -364,10 +361,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
           </p>
 
           <div
+            className="host-grid-3"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '20px',
               maxWidth: '1000px',
               margin: '0 auto',
             }}
@@ -375,11 +370,11 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             {features.map((feature, index) => (
               <div
                 key={index}
+                className="host-feature-item"
                 style={{
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: '16px',
-                  padding: '20px',
                   background: isDark
                     ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
                     : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
@@ -409,8 +404,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                   style={{ flexShrink: 0, marginTop: '2px' }}
                 />
                 <p
+                  className="host-feature-text"
                   style={{
-                    fontSize: '16px',
                     lineHeight: '1.6',
                     color: isDark ? '#D0D0D0' : '#333333',
                     margin: 0,
@@ -426,10 +421,10 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
 
         {/* CTA Section */}
         <div
+          className="host-cta"
           style={{
             backgroundColor: '#478547',
             borderRadius: '24px',
-            padding: '60px 50px',
             textAlign: 'center',
             position: 'relative',
             overflow: 'hidden',
@@ -467,8 +462,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             </div>
 
             <h3
+              className="host-cta-title"
               style={{
-                fontSize: '38px',
                 fontWeight: '700',
                 color: '#FFFFFF',
                 margin: '0 0 20px 0',
@@ -478,8 +473,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
               Join Canada's New Golf Movement
             </h3>
             <p
+              className="host-cta-text"
               style={{
-                fontSize: '18px',
                 lineHeight: '1.8',
                 color: 'rgba(255, 255, 255, 0.95)',
                 margin: '0 0 32px 0',
@@ -497,19 +492,19 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
 
             {/* Launch Offer Badge */}
             <div
+              className="host-cta-badge"
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.15)',
                 border: '2px solid rgba(255, 255, 255, 0.3)',
                 borderRadius: '16px',
-                padding: '28px 40px',
                 marginBottom: '32px',
                 display: 'inline-block',
                 backdropFilter: 'blur(10px)',
               }}
             >
               <p
+                className="host-cta-badge-label"
                 style={{
-                  fontSize: '16px',
                   fontWeight: '600',
                   color: 'rgba(255, 255, 255, 0.9)',
                   margin: '0 0 12px 0',
@@ -521,8 +516,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                 Exclusive Launch Rewards
               </p>
               <p
+                className="host-cta-badge-title"
                 style={{
-                  fontSize: '24px',
                   fontWeight: '700',
                   color: '#FFFFFF',
                   margin: '0 0 8px 0',
@@ -532,8 +527,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                 0% SimShare Fees for First 100 Hosts
               </p>
               <p
+                className="host-cta-badge-text"
                 style={{
-                  fontSize: '15px',
                   color: 'rgba(255, 255, 255, 0.85)',
                   margin: 0,
                   fontFamily: 'Poppins, sans-serif',
@@ -544,8 +539,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             </div>
 
             <p
+              className="host-cta-final"
               style={{
-                fontSize: '19px',
                 fontWeight: '600',
                 color: '#FFFFFF',
                 margin: 0,
