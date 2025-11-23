@@ -1,4 +1,3 @@
-import imgGolfSim from 'figma:asset/5e785a4f588382d9855fbe756dbac66fcfad1ac5.png';
 import { useTheme } from '../contexts/ThemeContext';
 import { getResponsiveValue, useResponsive } from '../hooks/useResponsive';
 
@@ -19,7 +18,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         width: '100%',
         minHeight: '100vh',
         background: isMobileOrTablet
-          ? `linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url(${imgGolfSim}) center/cover no-repeat`
+          ? `linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url("/Golf Indoor.jpg") center/cover no-repeat`
           : isDark
             ? 'linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 50%, hsl(0, 0%, 5%) 100%)'
             : 'linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 95%) 50%, hsl(0, 0%, 100%) 100%)',
@@ -232,7 +231,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             }}
           >
             <img
-              src={imgGolfSim}
+              src="/Golf Indoor.jpg"
               alt="Golf simulator"
               style={{
                 width: '100%',
