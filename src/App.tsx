@@ -46,12 +46,12 @@ function SimShareApp() {
 
         {/* What is SimShare Section */}
         <section id="what-is-simshare">
-          <WhatIsSimShare onOpenWaitlist={() => setIsWaitlistModalOpen(true)} />
+          <WhatIsSimShare />
         </section>
 
         {/* Become a Host Section */}
         <section id="become-a-host">
-          <BecomeAHost onOpenWaitlist={() => setIsWaitlistModalOpen(true)} />
+          <BecomeAHost />
         </section>
       </main>
 

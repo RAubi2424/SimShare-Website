@@ -125,19 +125,17 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
       {/* Modal */}
       <div
+        className="modal-container"
         style={{
           position: 'fixed',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           zIndex: 9999,
-          width: '90%',
-          maxWidth: '600px',
           maxHeight: '90vh',
           overflowY: 'auto',
           backgroundColor: isDark ? 'hsl(0, 0%, 5%)' : 'hsl(0, 0%, 95%)',
           borderRadius: '20px',
-          padding: '40px',
           boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)',
         }}
       >
@@ -169,7 +167,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
               fontFamily: 'Poppins, sans-serif',
             }}
           >
-            Join the Waitlist
+            Get First Access
           </h2>
           <p
             style={{
@@ -189,9 +187,9 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
         >
           {/* Name Fields */}
           <div
+            className="modal-form-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
               gap: '16px',
             }}
           >
@@ -325,9 +323,9 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
           {/* Location */}
           <div
+            className="modal-form-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
               gap: '16px',
             }}
           >
@@ -476,7 +474,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 Submitting...
               </>
             ) : (
-              'Join Waitlist'
+              'Get First Access'
             )}
           </Button>
 

@@ -1,7 +1,6 @@
 import {
   Award,
   Calendar,
-  CheckCircle2,
   Clock,
   DollarSign,
   Shield,
@@ -10,22 +9,9 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-interface BecomeAHostProps {
-  onOpenWaitlist: () => void;
-}
-
-export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
+export function BecomeAHost() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
-
-  const features = [
-    'Instant, secure payments after each session',
-    'Integrated insurance coverage for peace of mind',
-    'Guest verification & messaging tools',
-    'Business analytics to track growth and demand trends',
-    'Early-access perks & partner discounts for verified hosts',
-    '24/7 dedicated host support team',
-  ];
 
   const benefits = [
     {
@@ -126,8 +112,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
               fontFamily: 'Poppins, sans-serif',
             }}
           >
-            From casual golfers earning extra income from their home sim, to
-            entrepreneurs launching their own simulator facilities. SimShare
+            From casual golfers earning extra income from their home setups to
+            entrepreneurs launching larger-scale simulator facilities, SimShare
             makes it simple to start earning.
           </p>
         </div>
@@ -155,7 +141,7 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                   cursor: 'default',
                   boxShadow: isDark
-                    ? '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
+                    ? '0 20px 60px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.05) inset'
                     : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
                   border: isDark
                     ? '1px solid rgba(255, 255, 255, 0.05)'
@@ -164,14 +150,14 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = 'translateY(-5px)';
                   e.currentTarget.style.boxShadow = isDark
-                    ? '0 8px 30px rgba(0, 0, 0, 0.5)'
+                    ? '0 8px 30px rgba(0, 0, 0, 0.7), 0 4px 15px rgba(0, 0, 0, 0.5)'
                     : '0 8px 30px rgba(0, 0, 0, 0.12)';
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.boxShadow = isDark
-                    ? '0 4px 20px rgba(0, 0, 0, 0.4)'
-                    : '0 4px 20px rgba(0, 0, 0, 0.08)';
+                    ? '0 20px 60px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.05) inset'
+                    : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset';
                 }}
               >
                 <div
@@ -229,18 +215,8 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
         <div
           className="host-control"
           style={{
-            background: isDark
-              ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
-              : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
-            borderRadius: '24px',
             marginBottom: '80px',
             textAlign: 'center',
-            boxShadow: isDark
-              ? '0 20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
-              : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
-            border: isDark
-              ? '1px solid rgba(255, 255, 255, 0.05)'
-              : '1px solid rgba(0, 0, 0, 0.05)',
           }}
         >
           <h3
@@ -289,25 +265,29 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             full-time, you stay in full control.
           </p>
           <div
-            onClick={onOpenWaitlist}
             style={{
               marginTop: '32px',
               padding: '20px',
               backgroundColor: isDark ? 'hsl(0, 0%, 10%)' : 'hsl(0, 0%, 100%)',
               borderRadius: '16px',
               display: 'inline-block',
-              cursor: 'pointer',
               transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+              cursor: 'default',
+              boxShadow: isDark
+                ? '0 4px 12px rgba(0, 0, 0, 0.3)'
+                : '0 4px 12px rgba(0, 0, 0, 0.08)',
             }}
             onMouseEnter={e => {
               e.currentTarget.style.transform = 'translateY(-4px)';
               e.currentTarget.style.boxShadow = isDark
-                ? '0 8px 24px rgba(0, 0, 0, 0.4)'
-                : '0 8px 24px rgba(0, 0, 0, 0.15)';
+                ? '0 8px 24px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3)'
+                : '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06)';
             }}
             onMouseLeave={e => {
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
+              e.currentTarget.style.boxShadow = isDark
+                ? '0 4px 12px rgba(0, 0, 0, 0.3)'
+                : '0 4px 12px rgba(0, 0, 0, 0.08)';
             }}
           >
             <p
@@ -321,101 +301,6 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
             >
               You set the rules — we handle the rest.
             </p>
-          </div>
-        </div>
-
-        {/* Features Section */}
-        <div
-          style={{
-            marginBottom: '80px',
-          }}
-        >
-          <h3
-            className="host-features-title"
-            style={{
-              fontWeight: '700',
-              color: isDark ? '#FFFFFF' : '#191919',
-              margin: '0 0 20px 0',
-              fontFamily: 'Poppins, sans-serif',
-              textAlign: 'center',
-            }}
-          >
-            Effortless Hosting, Powerful Support
-          </h3>
-          <p
-            className="host-features-text"
-            style={{
-              lineHeight: '1.7',
-              color: isDark ? '#B8B8B8' : '#666666',
-              margin: '0 0 48px 0',
-              fontFamily: 'Poppins, sans-serif',
-              textAlign: 'center',
-              maxWidth: '700px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            Hosting with SimShare is designed to feel professional and secure
-            from day one. Every transaction is protected, and every guest is
-            verified.
-          </p>
-
-          <div
-            className="host-grid-3"
-            style={{
-              maxWidth: '1000px',
-              margin: '0 auto',
-            }}
-          >
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="host-feature-item"
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '16px',
-                  background: isDark
-                    ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
-                    : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
-                  borderRadius: '12px',
-                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                  cursor: 'default',
-                  boxShadow: isDark
-                    ? '0 4px 12px rgba(0, 0, 0, 0.3)'
-                    : '0 4px 12px rgba(0, 0, 0, 0.05)',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = isDark
-                    ? '0 8px 24px rgba(0, 0, 0, 0.4)'
-                    : '0 8px 24px rgba(0, 0, 0, 0.1)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = isDark
-                    ? '0 4px 12px rgba(0, 0, 0, 0.3)'
-                    : '0 4px 12px rgba(0, 0, 0, 0.05)';
-                }}
-              >
-                <CheckCircle2
-                  size={24}
-                  color="#478547"
-                  style={{ flexShrink: 0, marginTop: '2px' }}
-                />
-                <p
-                  className="host-feature-text"
-                  style={{
-                    lineHeight: '1.6',
-                    color: isDark ? '#D0D0D0' : '#333333',
-                    margin: 0,
-                    fontFamily: 'Poppins, sans-serif',
-                  }}
-                >
-                  {feature}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
 
@@ -524,7 +409,7 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
                   fontFamily: 'Poppins, sans-serif',
                 }}
               >
-                0% SimShare Fees for First 100 Hosts
+                0% SimShare Fees for First 50 Hosts
               </p>
               <p
                 className="host-cta-badge-text"

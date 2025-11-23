@@ -167,6 +167,87 @@ Info Blue: #3B82F6
 Info Light: rgba(59, 130, 246, 0.1)
 ```
 
+### Gradients
+
+#### Button Gradients
+
+```css
+/* Primary Button */
+background: linear-gradient(135deg, #478547 0%, #5a9d5a 100%)
+
+/* Green Accent Gradient (for decorative elements) */
+background: linear-gradient(135deg, rgba(71, 133, 71, 0.3) 0%, rgba(90, 157, 90, 0.2) 100%)
+```
+
+#### Background Gradients - Light Mode
+
+```css
+/* Hero Section */
+background: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 95%) 50%, hsl(0, 0%, 100%) 100%)
+
+/* Content Sections */
+background: linear-gradient(180deg, hsl(0, 0%, 90%) 0%, hsl(0, 0%, 93%) 50%, hsl(0, 0%, 90%) 100%)
+
+/* Cards */
+background: linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 92%) 100%)
+
+/* Nested Cards */
+background: linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)
+
+/* Footer */
+background: linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 92%) 100%)
+```
+
+#### Background Gradients - Dark Mode
+
+```css
+/* Hero Section */
+background: linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 50%, hsl(0, 0%, 5%) 100%)
+
+/* Content Sections */
+background: linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 7%) 50%, hsl(0, 0%, 5%) 100%)
+
+/* Cards */
+background: linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 8%) 100%)
+
+/* Nested Cards */
+background: linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)
+
+/* Footer */
+background: linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 7%) 100%)
+```
+
+#### Text Gradients
+
+Used for hero titles to create visual interest.
+
+```css
+/* Light Mode Title */
+background: linear-gradient(135deg, #191919 0%, #333333 100%)
+-webkit-background-clip: text
+-webkit-text-fill-color: transparent
+background-clip: text
+
+/* Dark Mode Title */
+background: linear-gradient(135deg, #FFFFFF 0%, #D0D0D0 100%)
+-webkit-background-clip: text
+-webkit-text-fill-color: transparent
+background-clip: text
+```
+
+#### Overlay Gradients
+
+```css
+/* Mobile Hero Image Overlay (Dark) */
+background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%)
+
+/* Image Overlay - Light Mode */
+background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, transparent 50%, rgba(71, 133, 71, 0.05) 100%)
+
+/* Image Overlay - Dark Mode */
+background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, transparent 50%, rgba(71, 133, 71, 0.1) 100%)
+```
+
 ---
 
 ## Typography
@@ -523,6 +604,47 @@ Background: #FFFFFF
 gap: 32px;
 ```
 
+#### Mobile Menu
+
+Appears on mobile and tablet devices (< 768px) when hamburger icon is clicked.
+
+```css
+/* Mobile Menu Container */
+Position: fixed
+Top: 70px (below header)
+Left: 0
+Right: 0
+Background: #478547
+Z-Index: 999
+Border Bottom Left Radius: 16px
+Border Bottom Right Radius: 16px
+Box Shadow: 0 4px 20px rgba(0, 0, 0, 0.15)
+Padding: 16px
+
+/* Mobile Menu Nav */
+Display: flex
+Flex Direction: column
+Gap: 16px
+
+/* Mobile Menu Items */
+Background: transparent
+Border: none
+Color: #FFFFFF
+Font Size: 16px
+Font Weight: 600
+Padding: 12px 16px
+Border Radius: 8px
+Transition: background 0.2s ease
+
+/* Active/Hover State */
+Background: rgba(255, 255, 255, 0.1)
+
+/* Hamburger Icon */
+Display: block (< 768px) / none (≥ 768px)
+Size: 24px
+Color: #FFFFFF
+```
+
 ### Footer
 
 #### Footer Container
@@ -627,6 +749,41 @@ Gap: 8px
 Width: 20px
 Height: 20px
 ```
+
+### Decorative Elements
+
+#### Gradient Orbs (Background)
+
+Used for ambient background decoration on desktop hero sections. These create a subtle, modern glow effect.
+
+```css
+/* Large Orb (Top Right) */
+Position: absolute
+Top: -10%
+Right: -5%
+Width: 300px (mobile) / 600px (desktop)
+Height: 300px (mobile) / 600px (desktop)
+Background: radial-gradient(circle, rgba(71, 133, 71, 0.15) 0%, transparent 70%)
+Border Radius: 50%
+Filter: blur(60px)
+Pointer Events: none
+
+/* Small Orb (Bottom Left) */
+Position: absolute
+Bottom: -15%
+Left: -10%
+Width: 350px (mobile) / 700px (desktop)
+Height: 350px (mobile) / 700px (desktop)
+Background: radial-gradient(circle, rgba(71, 133, 71, 0.1) 0%, transparent 70%)
+Border Radius: 50%
+Filter: blur(80px)
+Pointer Events: none
+```
+
+**Usage Notes:**
+- Only visible on desktop when background is a gradient (not when using background images)
+- Creates subtle brand-colored ambient lighting
+- Must have `pointer-events: none` to not interfere with interactions
 
 ---
 
@@ -1004,6 +1161,172 @@ When creating new SimShare materials, ensure you have:
 - Consistent style
 - Tree-shakeable
 - Customizable size and color
+
+---
+
+## Development Patterns
+
+### Custom Hooks
+
+#### useResponsive Hook
+
+Used for detecting screen width and applying responsive behavior in React components.
+
+**Location:** `src/hooks/useResponsive.ts`
+
+**Usage:**
+
+```typescript
+import { useResponsive, getResponsiveValue } from '../hooks/useResponsive';
+
+function MyComponent() {
+  const { screenWidth } = useResponsive();
+
+  // Check device type
+  const isMobile = screenWidth < 768;
+  const isTablet = screenWidth >= 768 && screenWidth < 1024;
+  const isDesktop = screenWidth >= 1024;
+  const isMobileOrTablet = screenWidth < 1024;
+
+  // Get responsive values
+  const fontSize = getResponsiveValue('14px', '16px', '18px', screenWidth);
+
+  return (
+    <div style={{ fontSize }}>
+      {isMobile && <MobileView />}
+      {isDesktop && <DesktopView />}
+    </div>
+  );
+}
+```
+
+**Helper Function:**
+
+```typescript
+getResponsiveValue(
+  mobileValue,    // < 768px
+  tabletValue,    // 768px - 1023px
+  desktopValue,   // ≥ 1024px
+  screenWidth
+)
+```
+
+#### useTheme Hook
+
+Used for accessing and toggling the current theme (light/dark).
+
+**Location:** `src/contexts/ThemeContext.tsx`
+
+**Usage:**
+
+```typescript
+import { useTheme } from '../contexts/ThemeContext';
+
+function MyComponent() {
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
+
+  return (
+    <div
+      style={{
+        background: isDark ? 'hsl(0, 0%, 10%)' : '#FFFFFF',
+        color: isDark ? '#FFFFFF' : '#191919',
+      }}
+    >
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </div>
+  );
+}
+```
+
+### Responsive Patterns
+
+#### Mobile-First Approach
+
+Always start with mobile styles, then enhance for larger screens using CSS classes.
+
+```css
+/* Base mobile styles */
+.component {
+  padding: 16px;
+  font-size: 14px;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .component {
+    padding: 24px;
+    font-size: 16px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .component {
+    padding: 32px;
+    font-size: 18px;
+  }
+}
+```
+
+#### Conditional Background Images
+
+Use JavaScript to conditionally apply background images based on screen size.
+
+```typescript
+const isMobileOrTablet = screenWidth < 1024;
+
+<div
+  style={{
+    background: isMobileOrTablet
+      ? `linear-gradient(...), url(${image}) center/cover no-repeat`
+      : 'linear-gradient(...)',
+  }}
+/>
+```
+
+### Component Patterns
+
+#### Theme-Aware Styling
+
+Always provide both light and dark theme values.
+
+```typescript
+const isDark = theme === 'dark';
+
+<div
+  style={{
+    background: isDark
+      ? 'linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 8%) 100%)'
+      : 'linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 92%) 100%)',
+    color: isDark ? '#FFFFFF' : '#191919',
+    border: isDark
+      ? '1px solid rgba(255, 255, 255, 0.05)'
+      : '1px solid rgba(0, 0, 0, 0.05)',
+  }}
+/>
+```
+
+#### Hover State Pattern
+
+Use inline event handlers for interactive hover effects.
+
+```typescript
+<button
+  style={{
+    transition: 'all 0.2s ease',
+    transform: 'scale(1)',
+  }}
+  onMouseEnter={e => {
+    e.currentTarget.style.transform = 'scale(1.05)';
+  }}
+  onMouseLeave={e => {
+    e.currentTarget.style.transform = 'scale(1)';
+  }}
+>
+  Hover Me
+</button>
+```
 
 ---
 

@@ -1,6 +1,6 @@
 import imgGolfSim from 'figma:asset/5e785a4f588382d9855fbe756dbac66fcfad1ac5.png';
 import { useTheme } from '../contexts/ThemeContext';
-import { useResponsive, getResponsiveValue } from '../hooks/useResponsive';
+import { getResponsiveValue, useResponsive } from '../hooks/useResponsive';
 
 interface HomePageProps {
   onNavigate: (sectionId: string) => void;
@@ -21,8 +21,8 @@ export function HomePage({ onNavigate }: HomePageProps) {
         background: isMobileOrTablet
           ? `linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%), url(${imgGolfSim}) center/cover no-repeat`
           : isDark
-          ? 'linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 50%, hsl(0, 0%, 5%) 100%)'
-          : 'linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 95%) 50%, hsl(0, 0%, 100%) 100%)',
+            ? 'linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 50%, hsl(0, 0%, 5%) 100%)'
+            : 'linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 95%) 50%, hsl(0, 0%, 100%) 100%)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -75,12 +75,16 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div
           className="home-card"
           style={{
-            background: isDark
-              ? 'linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 8%) 100%)'
-              : 'linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 92%) 100%)',
+            background: isMobileOrTablet
+              ? isDark
+                ? 'linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(20, 20, 20, 0.85) 100%)'
+                : 'linear-gradient(135deg, rgba(247, 247, 247, 0.85) 0%, rgba(235, 235, 235, 0.85) 100%)'
+              : isDark
+                ? 'linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 8%) 100%)'
+                : 'linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 92%) 100%)',
             borderRadius: '32px',
             boxShadow: isDark
-              ? '0 30px 80px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.05) inset'
+              ? '0 30px 80px rgba(0, 0, 0, 0.8), 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
               : '0 30px 80px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.05) inset',
             border: isDark
               ? '1px solid rgba(255, 255, 255, 0.05)'
@@ -122,8 +126,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
               fontFamily: 'Poppins, sans-serif',
             }}
           >
-            SimShare makes it easy to book premium golf simulators. Practice
-            your swing year-round, or list your own simulator and earn income.
+            SimShare makes it easy to book premium golf simulators near you.
+            Keep swinging year-round or turn your own simulator into passive
+            income.
           </p>
 
           {/* CTA Buttons */}
@@ -155,7 +160,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   '0 8px 24px rgba(71, 133, 71, 0.35)';
               }}
             >
-              Join the Waitlist
+              Get First Access
             </button>
 
             <button
@@ -219,7 +224,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               borderRadius: '32px',
               overflow: 'hidden',
               boxShadow: isDark
-                ? '0 30px 80px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.1) inset'
+                ? '0 30px 80px rgba(0, 0, 0, 0.8), 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.1) inset'
                 : '0 30px 80px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.1) inset',
               border: isDark
                 ? '1px solid rgba(255, 255, 255, 0.1)'
