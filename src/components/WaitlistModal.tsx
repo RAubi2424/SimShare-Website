@@ -430,8 +430,8 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
               }}
             >
               <option value="">Select your interest</option>
-              <option value="player">Booking simulators as a player</option>
-              <option value="host">Hosting my simulator to earn income</option>
+              <option value="player">Player</option>
+              <option value="host">Host</option>
               <option value="both">Both playing and hosting</option>
             </select>
             {errors.interest && (

@@ -51,7 +51,7 @@ function SimShareApp() {
 
         {/* Become a Host Section */}
         <section id="become-a-host">
-          <BecomeAHost />
+          <BecomeAHost onOpenWaitlist={() => setIsWaitlistModalOpen(true)} />
         </section>
       </main>
 

@@ -8,12 +8,12 @@ export function WhatIsSimShare() {
     {
       title: 'For Golfers',
       description:
-        'Browse nearby simulators, compare prices, amenities and technologies then book instantly all in one platform',
+        'Browse nearby simulators, compare prices, amenities and technologies then book instantly all in one platform.',
     },
     {
       title: 'For Owners',
       description:
-        'Turn downtime into dependable passive income, through secure transactions to verified golfers.',
+        'Earn passive income by renting out your simulator through secure transactions to verified golfers.',
     },
   ];
 
@@ -23,8 +23,8 @@ export function WhatIsSimShare() {
       style={{
         width: '100%',
         background: isDark
-          ? 'linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 7%) 50%, hsl(0, 0%, 5%) 100%)'
-          : 'linear-gradient(180deg, hsl(0, 0%, 90%) 0%, hsl(0, 0%, 93%) 50%, hsl(0, 0%, 90%) 100%)',
+          ? 'linear-gradient(180deg, hsl(0, 0%, 8%) 0%, hsl(0, 0%, 10%) 50%, hsl(0, 0%, 8%) 100%)'
+          : 'linear-gradient(180deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 90%) 50%, hsl(0, 0%, 93%) 100%)',
         position: 'relative',
       }}
     >
@@ -38,7 +38,7 @@ export function WhatIsSimShare() {
         <div
           style={{
             textAlign: 'center',
-            marginBottom: '60px',
+            marginBottom: '32px',
           }}
         >
           <h2
@@ -83,8 +83,8 @@ export function WhatIsSimShare() {
             className="what-grid"
             style={{
               background: isDark
-                ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
-                : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
+                ? 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 11%) 100%)'
+                : 'linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 97%) 100%)',
               borderRadius: '20px',
               boxShadow: isDark
                 ? '0 20px 60px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.05) inset'
@@ -101,8 +101,8 @@ export function WhatIsSimShare() {
                 style={{
                   borderLeft: `4px solid #478547`,
                   background: isDark
-                    ? 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 11%) 100%)'
-                    : 'linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 97%) 100%)',
+                    ? 'linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 12%) 100%)'
+                    : 'linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 99%) 100%)',
                   borderRadius: '12px',
                   boxShadow: isDark
                     ? '0 4px 12px rgba(0, 0, 0, 0.5)'
@@ -180,46 +180,43 @@ export function WhatIsSimShare() {
             className="what-cta"
             style={{
               display: 'inline-block',
-              background: isDark
-                ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
-                : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
+              background: 'linear-gradient(135deg, #478547 0%, #5ba05b 100%)',
               borderRadius: '20px',
-              boxShadow: isDark
-                ? '0 20px 60px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.05) inset'
-                : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
-              border: isDark
-                ? '1px solid rgba(255, 255, 255, 0.05)'
-                : '1px solid rgba(0, 0, 0, 0.05)',
-              transform: 'translateY(-8px)',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+              padding: '32px 48px',
+              boxShadow:
+                '0 6px 16px rgba(71, 133, 71, 0.15), 0 2px 8px rgba(71, 133, 71, 0.1)',
+              position: 'relative',
+              overflow: 'hidden',
               cursor: 'default',
             }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-12px)';
-              e.currentTarget.style.boxShadow = isDark
-                ? '0 25px 70px rgba(0, 0, 0, 0.8), 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.05) inset'
-                : '0 25px 70px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.05) inset';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'translateY(-8px)';
-              e.currentTarget.style.boxShadow = isDark
-                ? '0 20px 60px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.05) inset'
-                : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset';
-            }}
           >
+            {/* Subtle pattern overlay */}
             <div
               style={{
-                borderRadius: '12px',
-                padding: '4px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                opacity: 0.1,
+                background:
+                  'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px)',
+                backgroundSize: '30px 30px',
+              }}
+            />
+            <div
+              style={{
+                position: 'relative',
               }}
             >
               <p
                 className="what-cta-title"
                 style={{
-                  fontWeight: '600',
-                  color: isDark ? '#FFFFFF' : '#191919',
+                  fontWeight: '700',
+                  color: '#FFFFFF',
                   margin: '0 0 8px 0',
                   fontFamily: 'Poppins, sans-serif',
+                  fontSize: '20px',
                 }}
               >
                 Ready to get started?
@@ -227,7 +224,7 @@ export function WhatIsSimShare() {
               <p
                 className="what-cta-text"
                 style={{
-                  color: isDark ? '#B8B8B8' : '#666666',
+                  color: 'rgba(255, 255, 255, 0.95)',
                   margin: 0,
                   fontFamily: 'Poppins, sans-serif',
                 }}

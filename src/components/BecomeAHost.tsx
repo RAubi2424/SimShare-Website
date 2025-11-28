@@ -9,7 +9,11 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
-export function BecomeAHost() {
+interface BecomeAHostProps {
+  onOpenWaitlist: () => void;
+}
+
+export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -18,7 +22,7 @@ export function BecomeAHost() {
       icon: DollarSign,
       title: 'Set Your Rates',
       description:
-        'Control your pricing and turn idle time into reliable passive income',
+        'Set your own rates or use our smart pricing recommendations to help you choose',
     },
     {
       icon: Calendar,
@@ -30,13 +34,12 @@ export function BecomeAHost() {
       icon: Shield,
       title: 'Protected & Verified',
       description:
-        'Every transaction is secure and every guest is verified for safety',
+        'Host with confidence knowing every player is verified and every booking is ensured',
     },
     {
       icon: TrendingUp,
       title: 'Track Performance',
-      description:
-        'View earnings, bookings, and analytics all in one dashboard',
+      description: 'View earnings, booking patterns and more, all in one spot',
     },
     {
       icon: Clock,
@@ -46,9 +49,8 @@ export function BecomeAHost() {
     },
     {
       icon: Award,
-      title: 'Premium Listings',
-      description:
-        'Stand out with verified host badges and priority placement in search',
+      title: 'Host Rewards',
+      description: 'Earn exclusive perks and bonuses as you host more sessions',
     },
   ];
 
@@ -58,8 +60,8 @@ export function BecomeAHost() {
       style={{
         width: '100%',
         background: isDark
-          ? 'linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 7%) 50%, hsl(0, 0%, 5%) 100%)'
-          : 'linear-gradient(180deg, hsl(0, 0%, 90%) 0%, hsl(0, 0%, 93%) 50%, hsl(0, 0%, 90%) 100%)',
+          ? 'linear-gradient(180deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 8%) 50%, hsl(0, 0%, 5%) 100%)'
+          : 'linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(0, 0%, 95%) 50%, hsl(0, 0%, 100%) 100%)',
         position: 'relative',
       }}
     >
@@ -103,19 +105,6 @@ export function BecomeAHost() {
             whether it's set up in your basement, garage, or a dedicated indoor
             facility.
           </p>
-          <p
-            className="host-text"
-            style={{
-              lineHeight: '1.7',
-              color: isDark ? '#B8B8B8' : '#666666',
-              margin: 0,
-              fontFamily: 'Poppins, sans-serif',
-            }}
-          >
-            From casual golfers earning extra income from their home setups to
-            entrepreneurs launching larger-scale simulator facilities, SimShare
-            makes it simple to start earning.
-          </p>
         </div>
 
         {/* Benefits Grid */}
@@ -134,8 +123,8 @@ export function BecomeAHost() {
                 className="host-card"
                 style={{
                   background: isDark
-                    ? 'linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(0, 0%, 9%) 100%)'
-                    : 'linear-gradient(135deg, hsl(0, 0%, 93%) 0%, hsl(0, 0%, 95%) 100%)',
+                    ? 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 11%) 100%)'
+                    : 'linear-gradient(135deg, hsl(0, 0%, 98%) 0%, hsl(0, 0%, 100%) 100%)',
                   borderRadius: '16px',
                   textAlign: 'center',
                   transition: 'transform 0.2s ease, box-shadow 0.2s ease',
@@ -219,88 +208,106 @@ export function BecomeAHost() {
             textAlign: 'center',
           }}
         >
-          <h3
-            className="host-control-title"
-            style={{
-              fontWeight: '700',
-              color: isDark ? '#FFFFFF' : '#191919',
-              margin: '0 0 20px 0',
-              fontFamily: 'Poppins, sans-serif',
-            }}
-          >
-            You're in Control — Every Step of the Way
-          </h3>
-          <p
-            className="host-control-text"
-            style={{
-              lineHeight: '1.8',
-              color: isDark ? '#D0D0D0' : '#333333',
-              margin: '0 0 24px 0',
-              fontFamily: 'Poppins, sans-serif',
-              maxWidth: '800px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            SimShare gives you total flexibility. You decide when to host, what
-            to charge, and who to welcome. Your personalized host dashboard
-            makes it easy to manage bookings, view earnings, and track
-            performance — all in one place.
-          </p>
-          <p
-            className="host-control-text"
-            style={{
-              lineHeight: '1.7',
-              color: isDark ? '#B8B8B8' : '#666666',
-              margin: 0,
-              fontFamily: 'Poppins, sans-serif',
-              maxWidth: '800px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            Our system automates payments and sends confirmations instantly, so
-            you never have to chase a booking or handle cash. Whether you're
-            sharing a home setup a few hours a week or running multiple bays
-            full-time, you stay in full control.
-          </p>
           <div
             style={{
-              marginTop: '32px',
-              padding: '20px',
-              backgroundColor: isDark ? 'hsl(0, 0%, 10%)' : 'hsl(0, 0%, 100%)',
-              borderRadius: '16px',
-              display: 'inline-block',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-              cursor: 'default',
+              background: isDark
+                ? 'linear-gradient(135deg, hsl(0, 0%, 9%) 0%, hsl(0, 0%, 11%) 100%)'
+                : 'linear-gradient(135deg, hsl(0, 0%, 98%) 0%, hsl(0, 0%, 100%) 100%)',
+              borderRadius: '24px',
+              padding: '60px 40px',
               boxShadow: isDark
-                ? '0 4px 12px rgba(0, 0, 0, 0.3)'
-                : '0 4px 12px rgba(0, 0, 0, 0.08)',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.boxShadow = isDark
-                ? '0 8px 24px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3)'
-                : '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = isDark
-                ? '0 4px 12px rgba(0, 0, 0, 0.3)'
-                : '0 4px 12px rgba(0, 0, 0, 0.08)';
+                ? '0 20px 60px rgba(0, 0, 0, 0.7), 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.05) inset'
+                : '0 20px 60px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.05) inset',
+              border: isDark
+                ? '1px solid rgba(255, 255, 255, 0.05)'
+                : '1px solid rgba(0, 0, 0, 0.05)',
             }}
           >
-            <p
+            <h3
+              className="host-control-title"
               style={{
-                fontSize: '19px',
-                fontWeight: '600',
-                color: '#478547',
-                margin: 0,
+                fontWeight: '700',
+                color: isDark ? '#FFFFFF' : '#191919',
+                margin: '0 0 24px 0',
                 fontFamily: 'Poppins, sans-serif',
               }}
             >
-              You set the rules — we handle the rest.
+              Have a Dedicated Simulator Facility?
+            </h3>
+            <p
+              className="host-control-text"
+              style={{
+                lineHeight: '1.8',
+                color: isDark ? '#D0D0D0' : '#333333',
+                margin: '0 0 24px 0',
+                fontFamily: 'Poppins, sans-serif',
+                maxWidth: '800px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              Do you own a commercial simulator facility or dream of starting
+              your own business? SimShare connects you with a vast network of
+              golfers to help you fill unused tee times and generate consistent
+              off-peak revenue — all without adding extra work to your day.
             </p>
+            <p
+              className="host-control-text"
+              style={{
+                lineHeight: '1.7',
+                color: isDark ? '#B8B8B8' : '#666666',
+                margin: '0 0 40px 0',
+                fontFamily: 'Poppins, sans-serif',
+                maxWidth: '800px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              We help simulator businesses get off the ground faster. Our
+              platform removes all the hassle of booking management, letting you
+              focus on the things that matter.
+            </p>
+            <div
+              style={{
+                background: 'linear-gradient(135deg, #478547 0%, #5ba05b 100%)',
+                borderRadius: '16px',
+                padding: '24px 32px',
+                display: 'inline-block',
+                cursor: 'default',
+                boxShadow:
+                  '0 6px 16px rgba(71, 133, 71, 0.15), 0 2px 8px rgba(71, 133, 71, 0.1)',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+            >
+              {/* Subtle pattern overlay */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  opacity: 0.1,
+                  background:
+                    'radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px)',
+                  backgroundSize: '30px 30px',
+                }}
+              />
+              <p
+                style={{
+                  fontSize: '22px',
+                  fontWeight: '700',
+                  color: '#FFFFFF',
+                  margin: 0,
+                  fontFamily: 'Poppins, sans-serif',
+                  position: 'relative',
+                  letterSpacing: '0.5px',
+                }}
+              >
+                You set the rules — We handle the rest.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -313,6 +320,7 @@ export function BecomeAHost() {
             textAlign: 'center',
             position: 'relative',
             overflow: 'hidden',
+            padding: '60px 40px',
           }}
         >
           {/* Background pattern */}
@@ -385,6 +393,7 @@ export function BecomeAHost() {
                 marginBottom: '32px',
                 display: 'inline-block',
                 backdropFilter: 'blur(10px)',
+                padding: '24px 32px',
               }}
             >
               <p
@@ -409,7 +418,7 @@ export function BecomeAHost() {
                   fontFamily: 'Poppins, sans-serif',
                 }}
               >
-                0% SimShare Fees for First 50 Hosts
+                For The First 100 Hosts
               </p>
               <p
                 className="host-cta-badge-text"
@@ -423,18 +432,31 @@ export function BecomeAHost() {
               </p>
             </div>
 
-            <p
+            <button
+              onClick={onOpenWaitlist}
               className="host-cta-final"
               style={{
                 fontWeight: '600',
                 color: '#FFFFFF',
                 margin: 0,
                 fontFamily: 'Poppins, sans-serif',
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: 'inherit',
+                textDecoration: 'underline',
+                textUnderlineOffset: '4px',
+                transition: 'opacity 0.2s ease',
+                display: 'block',
+                width: '100%',
+                textAlign: 'center',
               }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')}
+              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
             >
               Join the pre-launch waitlist and start earning from your
               simulator!
-            </p>
+            </button>
           </div>
         </div>
       </div>
