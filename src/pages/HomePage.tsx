@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import { getResponsiveValue, useResponsive } from '../hooks/useResponsive';
 
@@ -10,6 +11,49 @@ export function HomePage({ onNavigate }: HomePageProps) {
   const isDark = theme === 'dark';
   const { screenWidth } = useResponsive();
   const isMobileOrTablet = screenWidth < 1024;
+
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  // Effect to animate hero: starts sharp, gets blurry as you scroll away
+  useEffect(() => {
+    const element = heroRef.current;
+    if (!element) return;
+
+    const updateAnimation = () => {
+      requestAnimationFrame(() => {
+        if (!element) return;
+
+        // Calculate progress based on how far hero has scrolled from top
+        const rect = element.getBoundingClientRect();
+        const elementHeight = rect.height;
+        const elementTop = rect.top;
+
+        // Progress: 0 at top (elementTop = 0), 1 when fully scrolled past (elementTop = -height)
+        const currentProgress = Math.min(1, Math.max(0, -elementTop / elementHeight));
+
+        // Hero blurs as you scroll down
+        const blur = isMobileOrTablet ? 0 : currentProgress * 6;
+        const opacity = 1 - currentProgress * 0.3; // 1.0 → 0.7
+        const willChange =
+          currentProgress > 0 && currentProgress < 1 ? 'opacity, filter' : 'auto';
+
+        element.style.opacity = `${opacity}`;
+        element.style.filter = `blur(${blur}px)`;
+        element.style.willChange = willChange;
+      });
+    };
+
+    const handleScroll = () => {
+      updateAnimation();
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateAnimation(); // Initial update
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMobileOrTablet]);
 
   return (
     <div
@@ -72,6 +116,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       >
         {/* Left Side - Text Content in Card */}
         <div
+          ref={heroRef}
           className="home-card"
           style={{
             background: isMobileOrTablet

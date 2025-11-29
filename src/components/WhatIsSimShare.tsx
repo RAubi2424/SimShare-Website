@@ -1,8 +1,141 @@
+import { useEffect, useRef } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import { useScrollStagger } from '../hooks/useScrollStagger';
+import { useResponsive } from '../hooks/useResponsive';
+
+interface HighlightCardProps {
+  highlight: {
+    title: string;
+    description: string;
+  };
+  index: number;
+  isDark: boolean;
+  isMobile: boolean;
+}
+
+// Separate component for each highlight card to use scroll animation hook
+function HighlightCard({
+  highlight,
+  index,
+  isDark,
+  isMobile,
+}: HighlightCardProps) {
+  const { ref, adjustedProgress } = useScrollStagger({
+    index,
+    staggerDelay: 0.12,
+    threshold: 0.2,
+  });
+
+  const isHovering = useRef(false);
+
+  // Effect to update DOM directly based on scroll progress
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const updateAnimation = () => {
+      requestAnimationFrame(() => {
+        if (!element) return;
+
+        const progress = adjustedProgress();
+        // Both cards slide up from bottom
+        const translateY = (1 - progress) * (isMobile ? 20 : 30);
+        const scale = 0.95 + progress * 0.05;
+        const opacity = progress;
+        const willChange = progress < 1 ? 'transform, opacity' : 'auto';
+
+        // Only update if not hovering
+        if (!isHovering.current) {
+          element.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        }
+        element.style.opacity = `${opacity}`;
+        element.style.willChange = willChange;
+      });
+    };
+
+    const handleScroll = () => {
+      updateAnimation();
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateAnimation(); // Initial update
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [ref, adjustedProgress, isMobile]);
+
+  return (
+    <div
+      ref={ref}
+      className="what-card"
+      style={{
+        borderLeft: `4px solid #478547`,
+        background: isDark
+          ? 'linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 12%) 100%)'
+          : 'linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 99%) 100%)',
+        borderRadius: '12px',
+        boxShadow: isDark
+          ? '0 4px 12px rgba(0, 0, 0, 0.5)'
+          : '0 4px 12px rgba(0, 0, 0, 0.05)',
+        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+        cursor: 'default',
+      }}
+      onMouseEnter={e => {
+        isHovering.current = true;
+        const currentTransform = e.currentTarget.style.transform;
+        const currentY = parseFloat(
+          currentTransform.match(/translateY\(([-\d.]+)px\)/)?.[1] || '0'
+        );
+        const currentScale = parseFloat(
+          currentTransform.match(/scale\(([-\d.]+)\)/)?.[1] || '1'
+        );
+        e.currentTarget.style.transform = `translateY(${currentY - 5}px) scale(${currentScale})`;
+        e.currentTarget.style.boxShadow = isDark
+          ? '0 8px 30px rgba(0, 0, 0, 0.7), 0 4px 15px rgba(0, 0, 0, 0.4)'
+          : '0 8px 30px rgba(0, 0, 0, 0.12)';
+      }}
+      onMouseLeave={e => {
+        isHovering.current = false;
+        const progress = adjustedProgress();
+        const translateY = (1 - progress) * (isMobile ? 20 : 30);
+        const scale = 0.95 + progress * 0.05;
+        e.currentTarget.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        e.currentTarget.style.boxShadow = isDark
+          ? '0 4px 12px rgba(0, 0, 0, 0.5)'
+          : '0 4px 12px rgba(0, 0, 0, 0.05)';
+      }}
+    >
+      <h3
+        className="what-card-title"
+        style={{
+          fontWeight: '700',
+          color: '#478547',
+          margin: '0 0 12px 0',
+          fontFamily: 'Poppins, sans-serif',
+        }}
+      >
+        {highlight.title}
+      </h3>
+      <p
+        className="what-card-text"
+        style={{
+          lineHeight: '1.7',
+          color: isDark ? '#B8B8B8' : '#666666',
+          margin: 0,
+          fontFamily: 'Poppins, sans-serif',
+        }}
+      >
+        {highlight.description}
+      </p>
+    </div>
+  );
+}
 
 export function WhatIsSimShare() {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
+  const { isMobile } = useResponsive();
 
   const highlights = [
     {
@@ -95,57 +228,13 @@ export function WhatIsSimShare() {
             }}
           >
             {highlights.map((highlight, index) => (
-              <div
+              <HighlightCard
                 key={index}
-                className="what-card"
-                style={{
-                  borderLeft: `4px solid #478547`,
-                  background: isDark
-                    ? 'linear-gradient(135deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 12%) 100%)'
-                    : 'linear-gradient(135deg, hsl(0, 0%, 97%) 0%, hsl(0, 0%, 99%) 100%)',
-                  borderRadius: '12px',
-                  boxShadow: isDark
-                    ? '0 4px 12px rgba(0, 0, 0, 0.5)'
-                    : '0 4px 12px rgba(0, 0, 0, 0.05)',
-                  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                  cursor: 'default',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-5px)';
-                  e.currentTarget.style.boxShadow = isDark
-                    ? '0 8px 30px rgba(0, 0, 0, 0.7), 0 4px 15px rgba(0, 0, 0, 0.4)'
-                    : '0 8px 30px rgba(0, 0, 0, 0.12)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = isDark
-                    ? '0 4px 12px rgba(0, 0, 0, 0.5)'
-                    : '0 4px 12px rgba(0, 0, 0, 0.05)';
-                }}
-              >
-                <h3
-                  className="what-card-title"
-                  style={{
-                    fontWeight: '700',
-                    color: '#478547',
-                    margin: '0 0 12px 0',
-                    fontFamily: 'Poppins, sans-serif',
-                  }}
-                >
-                  {highlight.title}
-                </h3>
-                <p
-                  className="what-card-text"
-                  style={{
-                    lineHeight: '1.7',
-                    color: isDark ? '#B8B8B8' : '#666666',
-                    margin: 0,
-                    fontFamily: 'Poppins, sans-serif',
-                  }}
-                >
-                  {highlight.description}
-                </p>
-              </div>
+                highlight={highlight}
+                index={index}
+                isDark={isDark}
+                isMobile={isMobile}
+              />
             ))}
           </div>
 
