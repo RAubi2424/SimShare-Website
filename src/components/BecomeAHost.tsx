@@ -46,7 +46,7 @@ function FacilityCard({ isDark, isMobile }: FacilityCardProps) {
       requestAnimationFrame(() => {
         if (!element) return;
 
-        const currentProgress = progress.current;
+        const currentProgress = progress.current ?? 0;
         // Dramatic slide from left (negative X) - more distance
         const translateX = (1 - currentProgress) * (isMobile ? -40 : -100);
         const scale = 0.92 + currentProgress * 0.08;
@@ -204,7 +204,7 @@ function CTASection({ onOpenWaitlist, isMobile }: CTASectionProps) {
       requestAnimationFrame(() => {
         if (!element) return;
 
-        const currentProgress = progress.current;
+        const currentProgress = progress.current ?? 0;
         // Dramatic slide from right (positive X) - more distance
         const translateX = (1 - currentProgress) * (isMobile ? 40 : 100);
         const scale = 0.92 + currentProgress * 0.08;
@@ -398,7 +398,7 @@ function BenefitCard({ benefit, isDark, isMobile }: BenefitCardProps) {
       requestAnimationFrame(() => {
         if (!element) return;
 
-        const currentProgress = progress.current;
+        const currentProgress = progress.current ?? 0;
         const translateY = (1 - currentProgress) * (isMobile ? 25 : 40);
         const opacity = currentProgress;
         const willChange = currentProgress < 1 ? 'transform, opacity' : 'auto';
@@ -455,7 +455,7 @@ function BenefitCard({ benefit, isDark, isMobile }: BenefitCardProps) {
       }}
       onMouseLeave={e => {
         isHovering.current = false;
-        const currentProgress = progress.current;
+        const currentProgress = progress.current ?? 0;
         const translateY = (1 - currentProgress) * (isMobile ? 25 : 40);
         e.currentTarget.style.transform = `translateY(${translateY}px)`;
         e.currentTarget.style.boxShadow = isDark

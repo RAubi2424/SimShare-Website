@@ -29,7 +29,7 @@ export function useScrollStagger(config: StaggerConfig): StaggerAnimationReturn 
 
   // Calculate adjusted progress that accounts for stagger delay
   const adjustedProgress = (): number => {
-    const baseProgress = progress.current;
+    const baseProgress = progress.current ?? 0;
 
     // Each item's animation starts later based on its index
     // The delay is a fraction of the total progress range
