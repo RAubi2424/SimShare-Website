@@ -31,10 +31,11 @@ interface FacilityCardProps {
   isMobile: boolean;
 }
 
-// Facility Card component with scroll animation - slides from LEFT (dramatic)
+// Facility Card component with scroll animation - fades up from bottom
 function FacilityCard({ isDark, isMobile }: FacilityCardProps) {
   const { ref, progress } = useScrollAnimation({
-    threshold: 0.2,
+    threshold: 0.3,
+    easing: 'quart',
   });
 
   // Effect to update DOM directly based on scroll progress
@@ -47,13 +48,12 @@ function FacilityCard({ isDark, isMobile }: FacilityCardProps) {
         if (!element) return;
 
         const currentProgress = progress.current ?? 0;
-        // Dramatic slide from left (negative X) - more distance
-        const translateX = (1 - currentProgress) * (isMobile ? -40 : -100);
-        const scale = 0.92 + currentProgress * 0.08;
+        // Vertical fade-up animation
+        const translateY = (1 - currentProgress) * (isMobile ? 40 : 60);
         const opacity = currentProgress;
         const willChange = currentProgress < 1 ? 'transform, opacity' : 'auto';
 
-        element.style.transform = `translateX(${translateX}px) scale(${scale})`;
+        element.style.transform = `translateY(${translateY}px)`;
         element.style.opacity = `${opacity}`;
         element.style.willChange = willChange;
       });
@@ -189,10 +189,11 @@ interface CTASectionProps {
   isMobile: boolean;
 }
 
-// CTA Section component with scroll animation - slides from RIGHT (dramatic)
+// CTA Section component with scroll animation - fades up from bottom with stagger
 function CTASection({ onOpenWaitlist, isMobile }: CTASectionProps) {
   const { ref, progress } = useScrollAnimation({
-    threshold: 0.2,
+    threshold: 0.3,
+    easing: 'quart',
   });
 
   // Effect to update DOM directly based on scroll progress
@@ -205,13 +206,20 @@ function CTASection({ onOpenWaitlist, isMobile }: CTASectionProps) {
         if (!element) return;
 
         const currentProgress = progress.current ?? 0;
-        // Dramatic slide from right (positive X) - more distance
-        const translateX = (1 - currentProgress) * (isMobile ? 40 : 100);
-        const scale = 0.92 + currentProgress * 0.08;
-        const opacity = currentProgress;
-        const willChange = currentProgress < 1 ? 'transform, opacity' : 'auto';
 
-        element.style.transform = `translateX(${translateX}px) scale(${scale})`;
+        // Apply 150ms stagger delay
+        const staggerDelay = 0.15;
+        const staggeredProgress = Math.max(
+          0,
+          Math.min(1, (currentProgress - staggerDelay) / (1 - staggerDelay))
+        );
+
+        // Vertical fade-up animation
+        const translateY = (1 - staggeredProgress) * (isMobile ? 40 : 60);
+        const opacity = staggeredProgress;
+        const willChange = staggeredProgress < 1 ? 'transform, opacity' : 'auto';
+
+        element.style.transform = `translateY(${translateY}px)`;
         element.style.opacity = `${opacity}`;
         element.style.willChange = willChange;
       });

@@ -5,6 +5,7 @@ interface ScrollAnimationConfig {
   rootMargin?: string; // Intersection Observer margin (default: "0px")
   startOffset?: number; // % into viewport when animation starts (0-1)
   endOffset?: number; // % into viewport when animation completes (0-1)
+  easing?: 'cubic' | 'quart' | 'expo'; // Easing function to use (default: 'cubic')
 }
 
 interface ScrollAnimationReturn {
@@ -13,9 +14,17 @@ interface ScrollAnimationReturn {
   isInView: React.RefObject<boolean>;
 }
 
-// Easing function for smooth professional animations
+// Easing functions for smooth professional animations
 function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3);
+}
+
+function easeOutQuart(t: number): number {
+  return 1 - Math.pow(1 - t, 4);
+}
+
+function easeOutExpo(t: number): number {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 }
 
 // Clamp value between min and max
@@ -31,6 +40,7 @@ export function useScrollAnimation(
     rootMargin = '0px',
     startOffset = 0,
     endOffset = 1,
+    easing = 'cubic',
   } = config;
 
   const ref = useRef<HTMLDivElement>(null);
@@ -103,7 +113,12 @@ export function useScrollAnimation(
           0,
           1
         );
-        progress.current = easeOutCubic(offsetProgress);
+        const easingFunctions = {
+          cubic: easeOutCubic,
+          quart: easeOutQuart,
+          expo: easeOutExpo,
+        };
+        progress.current = easingFunctions[easing](offsetProgress);
       });
     };
 
