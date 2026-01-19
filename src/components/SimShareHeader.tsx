@@ -76,7 +76,7 @@ export function SimShareHeader({ onNavigate }: SimShareHeaderProps) {
           onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
         >
           <img
-            src="/Light Logo - Name.png"
+            src="/New Logo.png"
             alt="SimShare Logo"
             style={{
               height: isScrolled ? '60px' : '70px',
