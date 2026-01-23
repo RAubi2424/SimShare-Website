@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import {
   Award,
   Calendar,
@@ -8,9 +7,10 @@ import {
   TrendingUp,
   Users,
 } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useResponsive } from '../hooks/useResponsive';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface BecomeAHostProps {
   onOpenWaitlist: () => void;
@@ -120,8 +120,8 @@ function FacilityCard({ isDark, isMobile }: FacilityCardProps) {
         >
           Do you own a commercial simulator facility or dream of starting your
           own business? SimShare connects you with a vast network of golfers to
-          help you fill unused tee times and generate consistent off-peak revenue
-          — all without adding extra work to your day.
+          help you fill unused tee times and generate consistent off-peak
+          revenue — all without adding extra work to your day.
         </p>
         <p
           className="host-control-text"
@@ -217,7 +217,8 @@ function CTASection({ onOpenWaitlist, isMobile }: CTASectionProps) {
         // Vertical fade-up animation
         const translateY = (1 - staggeredProgress) * (isMobile ? 40 : 60);
         const opacity = staggeredProgress;
-        const willChange = staggeredProgress < 1 ? 'transform, opacity' : 'auto';
+        const willChange =
+          staggeredProgress < 1 ? 'transform, opacity' : 'auto';
 
         element.style.transform = `translateY(${translateY}px)`;
         element.style.opacity = `${opacity}`;
@@ -455,7 +456,9 @@ function BenefitCard({ benefit, isDark, isMobile }: BenefitCardProps) {
       onMouseEnter={e => {
         isHovering.current = true;
         const currentTransform = e.currentTarget.style.transform;
-        const currentY = parseFloat(currentTransform.match(/translateY\(([-\d.]+)px\)/)?.[1] || '0');
+        const currentY = parseFloat(
+          currentTransform.match(/translateY\(([-\d.]+)px\)/)?.[1] || '0'
+        );
         e.currentTarget.style.transform = `translateY(${currentY - 5}px)`;
         e.currentTarget.style.boxShadow = isDark
           ? '0 8px 30px rgba(0, 0, 0, 0.7), 0 4px 15px rgba(0, 0, 0, 0.5)'
@@ -543,7 +546,7 @@ export function BecomeAHost({ onOpenWaitlist }: BecomeAHostProps) {
       icon: Shield,
       title: 'Protected & Verified',
       description:
-        'Host with confidence knowing every player is verified and every booking is ensured',
+        'Host with confidence knowing every player is verified and every booking is insured',
     },
     {
       icon: TrendingUp,

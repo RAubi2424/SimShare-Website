@@ -122,7 +122,7 @@ export function SimShareFooter() {
           fontWeight: '400',
         }}
       >
-        © 2025 SimShare, Ltd.
+        © 2026 SimShare, All Rights Reserved.
       </div>
 
       {/* Social Icons */}
